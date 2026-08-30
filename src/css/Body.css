@@ -1,0 +1,61 @@
+@import "tailwindcss";
+@import "./themes.css";
+
+.Body {
+  @apply bg-background text-text transition-colors duration-300 ease-in-out h-full
+    flex flex-col items-center justify-start;
+}
+
+/* SPLASH SECTION */
+.Splash {
+  @apply h-[68vh] w-full flex flex-row shrink-0 min-h-95;
+}
+
+.Splash-greeting {
+  @apply px-5 pb-10 pt-1 min-w-120 min-h-100 w-[70%] bg-primary transition-colors duration-300 ease-in-out;
+}
+
+.Splash-info {
+  @apply bg-primary w-[40%] lg:w-[30%] transition-colors duration-300 ease-in-out flex flex-col
+    items-center justify-between pt-6 min-w-80 pb-8;
+}
+
+.Splash-info-profile-picture-wrapper {
+  @apply w-50 h-50 rounded-full overflow-hidden drop-shadow-md drop-shadow-text hover:scale-105 duration-300;
+}
+
+.Splash-info-profile-picture-wrapper::after {
+  content: "";
+
+  @apply absolute inset-0 z-10 pointer-events-none bg-primary/15 mix-blend-color transition-colors duration-300 ease-in-out;
+}
+
+.Splash-info-profile-picture {
+  @apply w-full h-full object-cover scale-115 -translate-x-3 object-[0%_30%];
+}
+
+.Splash-info-button {
+  @apply bg-background text-text p-5 text-xl cursor-pointer hover:bg-highlight hover:scale-110 duration-300
+    hover:outline-2 hover:outline-text drop-shadow-md drop-shadow-text;
+}
+
+.Splash-greeting-image {
+  @apply h-[115%] w-full bg-center bg-no-repeat flex justify-center
+    rounded-2xl drop-shadow-lg drop-shadow-text bg-primary/30 bg-blend-luminosity transition-colors
+    duration-300 ease-in-out bg-cover;
+}
+
+.Splash-greeting-image-text {
+  @apply text-background text-3xl lg:text-5xl font-bold flex flex-col gap-7 self-end pb-20 relative z-10;
+
+  text-shadow: 
+    -2px -2px 0 var(--color-text),
+     2px -2px 0 var(--color-text),
+    -2px  2px 0 var(--color-text),
+     2px  2px 0 var(--color-text);
+}
+
+/* ABOUT SECTION */
+.About {
+  @apply h-[40vh] w-full flex flex-col shrink-0 bg-background items-center gap-12 justify-center pt-10;
+}

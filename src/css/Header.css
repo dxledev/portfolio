@@ -1,0 +1,15 @@
+@import "tailwindcss";
+@import "./themes.css";
+
+.Header {
+  @apply flex flex-row justify-between items-center p-5 px-10 lg:px-20 bg-primary font-semibold text-text
+    transition-colors duration-300 ease-in-out h-[7%] text-2xl;
+}
+
+.Nav {
+  @apply flex flex-row gap-8 items-center justify-center translate-x-10.5;
+}
+
+.link {
+  @apply hover:text-highlight hover:underline transition-colors duration-220 cursor-pointer;
+}
