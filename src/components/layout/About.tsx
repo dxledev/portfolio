@@ -13,8 +13,8 @@ function About() {
 
   const body2 =
     "In my free time, I enjoy playing pool and the occasional guitar. I'm a die-hard Golden State Warriors fan and watching " +
-    "and talking about the NBA is one of my lifelong passions. I also like to socialize with people and I always love collaborating " + 
-    "on something meaningful.";
+    "and talking about the NBA is one of my lifelong passions. If not then I'm probably theming some minute detail on my Linux desktop. " +
+    "I also like to socialize with people and I always love collaborating on something meaningful.";
 
   const body3 = "Let's get in touch!";
 
