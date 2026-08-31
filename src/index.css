@@ -1,3 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
 @import "tailwindcss";
 @import "./css/themes.css";
+
+@theme {
+  --font-inter: "Inter", sans-serif;
+}
+
+body {
+  @apply font-inter;
+}
+
+/* Scrollbar Styling */
+html {
+  background-color: var(--bg);
+  scrollbar-color: var(--secondary) var(--bg);
+}
+
+
+html::-webkit-scrollbar {
+  width: 0.75rem;
+}
+
+html::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--secondary);
+  border: 0.2rem solid var(--bg);
+  border-radius: 9999px;
+}
 

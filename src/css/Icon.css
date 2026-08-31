@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@import './themes.css';
+
+.Icon {
+  font-family: "JetBrainsMono Nerd Font";
+
+  @apply inline-flex size-12 items-center justify-center rounded-full bg-secondary leading-none
+    drop-shadow-md shadow-text hover:scale-115 duration-180 text-background;
+}
+
+.Icon-glyph {
+  @apply text-4xl text-background leading-none;
+}
+
+.Icon-image {
+  @apply size-8 object-contain;
+}

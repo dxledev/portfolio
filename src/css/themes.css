@@ -25,8 +25,8 @@
   --bg: #cdd6f4;
   --text: #313244;
   --primary: #cba6f7;
-  --secondary: #f5c2e7;
-  --tertiary: #f38ba8;
+  --secondary: #f38ba8; 
+  --tertiary: #f5c2e7;
   --highlight: #f9e2af;
   --subtle: #fab387;
 }
@@ -39,4 +39,16 @@
   --color-tertiary: var(--tertiary);
   --color-highlight: var(--highlight);
   --color-subtle: var(--subtle);
+
+  /* for shadcn components */
+  --color-popover: var(--bg);
+  --color-popover-foreground: var(--text);
+  --color-accent: var(--secondary);
+  --color-accent-foreground: var(--bg);
+  --color-input: var(--secondary);
+  --color-ring: var(--highlight);
+  --color-foreground: var(--text);
+  --color-muted-foreground: var(--tertiary);
+  --color-border: var(--secondary);
+  --color-destructive: var(--subtle);
 }

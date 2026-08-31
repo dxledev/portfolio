@@ -1,5 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap');
 @import "tailwindcss";
 @import "./themes.css";
+
+@theme {
+  --font-playfair: "Playfair Display", serif;
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-cormorant: "Cormorant Garamond", serif;
+
+  --animate-fade-up: small-fade-up 0.25s linear both;
+  --animate-fade-right-delayed: fade-right 0.25s linear 0.6s both;
+  --animate-fade-right-delayed-two: fade-right 0.25s linear 0.8s both;
+  --animate-fade-right-delayed-three: fade-right 0.25s linear 1.0s both;
+  --animate-fade-right-delayed-four: fade-right 0.25s linear 1.2s both;
+  --animate-fade-right-delayed-five: fade-right 0.25s linear 1.6s both;
+  --animate-fade-right-delayed-six: fade-right 0.25s linear 1.8s both;
+  @keyframes small-fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(100px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-right {
+    from {
+      opacity: 0;
+      transform: translateX(600px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  --animate-fade-in: fade-in 1s linear 2.4s both;
+  --animate-fade-in-no-delay: fade-in 0.8s linear both;
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    
+    to {
+      opacity: 1;
+    }
+  }
+
+}
 
 .Body {
   @apply bg-background text-text transition-colors duration-300 ease-in-out h-full
@@ -15,13 +66,30 @@
   @apply px-5 pb-10 pt-1 min-w-120 min-h-100 w-[70%] bg-primary transition-colors duration-300 ease-in-out;
 }
 
+.Splash-greeting-image {
+  @apply h-[115%] w-full bg-center bg-no-repeat flex justify-center
+    rounded-2xl drop-shadow-lg drop-shadow-text bg-primary/30 bg-blend-luminosity transition-colors
+    duration-300 ease-in-out bg-cover animate-fade-up;
+}
+
+.Splash-greeting-image-text {
+  @apply text-background text-3xl lg:text-5xl flex flex-col gap-7 self-end pb-20 relative z-10;
+
+  text-shadow: 
+    -2px -2px 0 var(--color-text),
+     2px -2px 0 var(--color-text),
+    -2px  2px 0 var(--color-text),
+     2px  2px 0 var(--color-text);
+}
+
 .Splash-info {
   @apply bg-primary w-[40%] lg:w-[30%] transition-colors duration-300 ease-in-out flex flex-col
     items-center justify-between pt-6 min-w-80 pb-8;
 }
 
 .Splash-info-profile-picture-wrapper {
-  @apply w-50 h-50 rounded-full overflow-hidden drop-shadow-md drop-shadow-text hover:scale-105 duration-300;
+  @apply w-50 h-50 rounded-full overflow-hidden drop-shadow-md drop-shadow-text hover:scale-105 duration-300
+    animate-fade-right-delayed;
 }
 
 .Splash-info-profile-picture-wrapper::after {
@@ -34,28 +102,36 @@
   @apply w-full h-full object-cover scale-115 -translate-x-3 object-[0%_30%];
 }
 
+.Splash-info-profile-name {
+  @apply text-4xl font-bold animate-fade-right-delayed-two;
+}
+
+.Splash-info-profile-major {
+  @apply text-xl flex flex-col items-center gap-0.5 animate-fade-right-delayed-three;
+}
+
+.Splash-info-profile-contact {
+  @apply flex flex-col gap-1 items-center animate-fade-right-delayed-five;
+}
+
+.Splash-info-profile-links {
+  @apply flex items-center justify-center gap-5 animate-fade-right-delayed-six;
+}
+
 .Splash-info-button {
   @apply bg-background text-text p-5 text-xl cursor-pointer hover:bg-highlight hover:scale-110 duration-300
-    hover:outline-2 hover:outline-text drop-shadow-md drop-shadow-text;
-}
-
-.Splash-greeting-image {
-  @apply h-[115%] w-full bg-center bg-no-repeat flex justify-center
-    rounded-2xl drop-shadow-lg drop-shadow-text bg-primary/30 bg-blend-luminosity transition-colors
-    duration-300 ease-in-out bg-cover;
-}
-
-.Splash-greeting-image-text {
-  @apply text-background text-3xl lg:text-5xl font-bold flex flex-col gap-7 self-end pb-20 relative z-10;
-
-  text-shadow: 
-    -2px -2px 0 var(--color-text),
-     2px -2px 0 var(--color-text),
-    -2px  2px 0 var(--color-text),
-     2px  2px 0 var(--color-text);
+    hover:outline-2 hover:outline-text drop-shadow-md drop-shadow-text animate-fade-in;
 }
 
 /* ABOUT SECTION */
 .About {
-  @apply h-[40vh] w-full flex flex-col shrink-0 bg-background items-center gap-12 justify-center pt-10;
+  @apply w-full flex flex-col shrink-0 bg-background items-center gap-12 justify-center pt-45 pb-30;
+}
+
+.About-title {
+  @apply flex flex-col items-start gap-2 w-[70%] animate-fade-in shrink-0;
+}
+
+.About-body {
+  @apply flex flex-col items-start w-[70%] gap-12 shrink-0;
 }

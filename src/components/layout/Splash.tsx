@@ -2,6 +2,10 @@ import { useEffect, useState } from 'react';
 import '../../css/Body.css'
 import SplashImage from '../../assets/splash.png';
 import ProfilePicture from '../../assets/profile-picture.jpeg';
+import Icon from '../widgets/Icon.tsx';
+
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { IoMdMail } from "react-icons/io";
 
 function SplashGreeting() {
   const [scrollOffset, setScrollOffset] = useState(0);
@@ -28,14 +32,18 @@ function SplashGreeting() {
         }}
       >
         <h1 className='Splash-greeting-image-text'>
-          <div className='text-xl lg:text-3xl'
+          <div className='text-2xl lg:text-4xl font-montserrat!'
           >
             HELLO, I'M
           </div>
           <div 
-            className='text-6xl lg:text-8xl'
+            className='text-7xl lg:text-9xl font-extrabold font-playfair'
           >Dale Peligro.</div>
-          <div className='text-3xl lg:text-5xl'>Software Engineer</div>
+          <div 
+            className='text-3xl lg:text-5xl italic font-bold font-cormorant'
+          >
+            Software Engineer.
+          </div>
         </h1>
       </div>
     </div>
@@ -44,7 +52,7 @@ function SplashGreeting() {
 
 function SplashInfo() {
   const name = "Dale Peligro.";
-  const majorLine1 = "B.S. in Science";
+  const majorLine1 = "B.S. in Science,";
   const majorLine2 = "Computer Science.";
   const location = "Covina, California";
 
@@ -61,24 +69,41 @@ function SplashInfo() {
             className='Splash-info-profile-picture'
           />
         </div>
-        <div className='text-4xl font-bold'>
+        <div className='Splash-info-profile-name'>
           {name}
         </div>
-        <div className='text-xl flex flex-col items-center gap-0.5'>
+        <div className='Splash-info-profile-major'>
           <div>{majorLine1}</div>
           <div>{majorLine2}</div>
           <div>{location}</div>
         </div>
       </div>
 
-      <div className='flex flex-col gap-8 items-center justify-start'>
-        <div className='flex flex-col gap-0.5 items-center'>
+      <div className='flex flex-col gap-8 items-center justify-start pb-12'>
+        <div className='Splash-info-profile-contact'>
           <div className='text-xl'>
             {email}
           </div>
           <div className='text-xl'>
             {phoneNumber}
           </div>
+        </div>
+        <div className='Splash-info-profile-links'>
+          <Icon
+            link=''
+            icon={<IoMdMail className='size-8' />}
+            alt='Email'
+          />
+          <Icon
+            link='https://github.com/dxledev'
+            icon={<FaGithub className='size-8' />}
+            alt="GitHub"
+          />
+          <Icon 
+            link='https://www.linkedin.com/in/dale-peligro-62762424a/'
+            icon={<FaLinkedin className='size-8'/>}
+            alt="LinkedIn"
+          />
         </div>
         <div>
           <button className='Splash-info-button'>

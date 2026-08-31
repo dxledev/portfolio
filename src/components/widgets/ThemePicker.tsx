@@ -1,19 +1,52 @@
 import { useTheme } from "../../context/useTheme";
 import type { Theme } from "../../context/ThemeContext";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from './Select.tsx';
 
 function ThemePicker() {
+  const items = [
+    { label: "Rosé Pine", value: "rose-pine" },
+    { label: "Nord", value: "nord" },
+    { label: "Catppuccin", value: "catppuccin" },
+  ];
+
   const { theme, setTheme } = useTheme();
   
-  function handleThemeChange(event: React.ChangeEvent<HTMLSelectElement>) {
-    setTheme(event.target.value as Theme);
+  function handleThemeChange(value: Theme | null) {
+    if (value != null) {
+      setTheme(value);
+    }
   }
 
   return (
-    <select value={theme} onChange={handleThemeChange}>
-      <option value="rose-pine">Rosé Pine</option>
-      <option value="nord">Nord</option>
-      <option value="catppuccin">Catppuccin</option>
-    </select>
+    <Select<Theme> 
+      items={items}
+      value={theme}
+      onValueChange={handleThemeChange}
+    >
+      <SelectTrigger className="w-40 data-[size=default]:h-8 text-xl cursor-pointer transition-colors duration-300">
+        <SelectValue placeholder="Theme" />
+      </SelectTrigger>
+      <SelectContent alignItemWithTrigger={false}>
+        <SelectGroup>
+          {items.map((item) => (
+            <SelectItem 
+              key={item.value} 
+              value={item.value}
+              className="cursor-pointer text-xl"
+            >
+              {item.label}
+            </SelectItem>
+          ))}
+        </SelectGroup>
+      </SelectContent>
+    </Select>
   )
 }
 

@@ -1,21 +1,46 @@
 import '../../css/Body.css';
+import { useInView } from '../../helpers/UseInView.tsx';
 
 function About() {
+  const { ref, isVisible } = useInView<HTMLDivElement>();
+
+  const body = 
+    "Hi there, visitor! I'm Dale, a software engineer focused on building reliable, " +
+    "user-focused applications across the full stack. My whole life I've loved to solve problems and puzzles " +
+    "and recently I've been able to solve some through tangible projects with code. Currently, I'm learning and " +
+    "building projects independently and working hard to find a permanent full-time position where I can showcase my " +
+    "skills and assist in building and improving systems.";
+
+  const body2 =
+    "In my free time, I enjoy playing pool and the occasional guitar. I'm a die-hard Golden State Warriors fan and watching " +
+    "and talking about the NBA is one of my lifelong passions. I also like to socialize with people and I always love collaborating " + 
+    "on something meaningful.";
+
+  const body3 = "Let's get in touch!";
+
   return (
     <div className='About'>
-      <div className='flex flex-col items-start gap-2 w-[70%]'>
-        <div className='text-4xl'>
+      <div className='About-title'>
+        <div className='text-4xl font-extrabold italic'>
           About Me
         </div>
-        <div>
+        <div className='font-bold'>
           My Background
         </div>
       </div>
 
-      <div className='flex flex-col items-start w-[70%]'>
+      <div 
+        ref={ref}
+        className={`About-body ${isVisible ? "animate-fade-in-no-delay" : "opacity-0"}`}
+      >
         <div>
-          Hi there, visitor! I'm Dale, a passionate problem-solver who likes to express that 
-          through coding and development. 
+          {body}
+        </div>
+        <div>
+          {body2}
+        </div>
+        <div>
+          {body3}
         </div>
       </div>
     </div>
