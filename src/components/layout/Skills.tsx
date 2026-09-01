@@ -193,7 +193,7 @@ function Skills() {
   return (
     <div className='Skills' id='skills'>
       <h1 className='Skills-header'>
-        My Development Stack
+        What I've Used
       </h1>
 
       <div className='Skills-grid'>

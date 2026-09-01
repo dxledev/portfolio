@@ -168,7 +168,7 @@
 }
 
 .Skills-section-skill-icon {
-  @apply text-6xl xl:text-4xl 2xl:text-6xl text-shadow-lg drop-shadow-md drop-shadow-text/30;
+  @apply text-6xl xl:text-4xl 2xl:text-6xl text-shadow-lg drop-shadow-md drop-shadow-text/30 hover:scale-110 duration-300;
 }
 
 .Skills-section-skill-label {

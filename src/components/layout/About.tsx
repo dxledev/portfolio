@@ -5,11 +5,12 @@ function About() {
   const { ref, isVisible } = useInView<HTMLDivElement>();
 
   const body = 
-    "Hi there, visitor! I'm Dale, a software engineer focused on building reliable, " +
-    "user-focused applications across the full stack. My whole life I've loved to solve problems and puzzles " +
-    "and recently I've been able to solve some through tangible projects with code. Currently, I'm learning and " +
+    "Hi there, visitor! I'm Dale, an LA County-based software engineer focused on building reliable, " +
+    "user-focused applications across the full stack. I specialize in both React.js for frontend development " + 
+    "and C++ for backend development. My whole life I've loved to solve problems and puzzles " +
+    "and I've been able to express that desire through coding and developing tangible projects. Currently, I'm learning and " +
     "building projects independently and working hard to find a permanent full-time position where I can showcase my " +
-    "skills and assist in building and improving systems.";
+    "skills in assisting building and improving systems.";
 
   const body2 =
     "In my free time, I enjoy playing pool and the occasional guitar. I'm a die-hard Golden State Warriors fan and watching " +
