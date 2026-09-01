@@ -135,3 +135,42 @@
 .About-body {
   @apply flex flex-col items-start w-[70%] gap-12 shrink-0;
 }
+
+/* SKILLS SECTION */
+.Skills {
+  @apply bg-secondary flex flex-col w-full shrink-0 items-center 
+    justify-start gap-12 py-20;
+}
+
+.Skills-header {
+  @apply text-background font-extrabold text-4xl 2xl:text-5xl text-shadow-lg;
+}
+
+.Skills-grid {
+  @apply grid grid-cols-1 xl:grid-cols-3 gap-12;
+}
+
+.Skills-section {
+  @apply rounded-4xl bg-primary flex flex-col h-92 w-110 xl:h-72 xl:w-90 2xl:h-92 2xl:w-110 
+    drop-shadow-lg shadow-text justify-center items-center gap-8;
+}
+
+.Skills-section-title {
+  @apply text-3xl xl:text-xl 2xl:text-3xl text-background font-bold text-shadow-lg text-shadow-text/30;
+}
+
+.Skills-section-row {
+  @apply flex flex-row gap-12 text-background;
+}
+
+.Skills-section-skill {
+  @apply flex flex-col items-center justify-center gap-1;
+}
+
+.Skills-section-skill-icon {
+  @apply text-6xl xl:text-4xl 2xl:text-6xl text-shadow-lg drop-shadow-md drop-shadow-text/30;
+}
+
+.Skills-section-skill-label {
+  @apply text-center text-xl xl:text-lg 2xl:text-xl text-shadow-lg text-shadow-text/30;
+}

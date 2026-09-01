@@ -32,15 +32,15 @@ function SplashGreeting() {
         }}
       >
         <h1 className='Splash-greeting-image-text'>
-          <div className='text-2xl lg:text-4xl font-montserrat!'
+          <div className='text-xl lg:text-2xl xl:text-3xl font-montserrat! tracking-[10px]'
           >
             HELLO, I'M
           </div>
           <div 
-            className='text-7xl lg:text-9xl font-extrabold font-playfair'
+            className='text-7xl lg:text-8xl xl:text-9xl font-extrabold font-playfair'
           >Dale Peligro.</div>
           <div 
-            className='text-3xl lg:text-5xl italic font-bold font-cormorant'
+            className='text-3xl lg:text-4xl xl:text-5xl italic font-extrabold font-cormorant tracking-wide'
           >
             Software Engineer.
           </div>
