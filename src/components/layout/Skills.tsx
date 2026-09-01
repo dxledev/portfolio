@@ -1,26 +1,19 @@
 import '../../css/Body.css';
 
+import { useInView } from '../../helpers/UseInView.tsx';
+
 import type { ReactNode } from 'react';
 
-import { FaHtml5, FaNode } from "react-icons/fa";
-import { FaCss3Alt } from "react-icons/fa";
-import { BiLogoTypescript } from "react-icons/bi";
-import { BiLogoCPlusPlus } from "react-icons/bi";
-import { FaPython } from "react-icons/fa";
-import { FaJava } from "react-icons/fa";
+import { FaHtml5, FaCss3Alt, FaPython, FaJava } from "react-icons/fa";
+import { BiLogoTypescript, BiLogoCPlusPlus } from "react-icons/bi";
 
-import { FaReact } from "react-icons/fa";
-import { RiTailwindCssFill } from "react-icons/ri";
-import { RiNextjsLine } from "react-icons/ri";
-import { FaNodeJs } from "react-icons/fa";
+import { FaReact, FaNodeJs } from "react-icons/fa";
+import { RiTailwindCssFill, RiNextjsLine } from "react-icons/ri";
 import { SiRaylib } from "react-icons/si";
 import { TbApiApp } from "react-icons/tb";
 
-import { FaGitAlt } from "react-icons/fa";
-import { FaLinux } from "react-icons/fa";
-import { FaAws } from "react-icons/fa";
-import { DiMongodb } from "react-icons/di";
-import { DiPostgresql } from "react-icons/di";
+import { FaGitAlt, FaLinux, FaAws } from "react-icons/fa";
+import { DiMongodb, DiPostgresql } from "react-icons/di";
 
 type Skill = {
   label: string,
@@ -40,7 +33,7 @@ type SectionProps = {
 
 function Section({ title, group }: SectionProps) {
   return (
-    <div className='Skills-section'>
+    <div className={`Skills-section`}>
       
       {group.map((row) => (
         <div key={row.id} className='Skills-section-row' id={row.id}>
@@ -66,6 +59,8 @@ function Section({ title, group }: SectionProps) {
 }
 
 function Skills() {
+  const { ref, isVisible } = useInView<HTMLDivElement>();
+
   const languages = [
     { 
       id: "row1",
@@ -114,7 +109,7 @@ function Skills() {
       id: "row1",
       row: [
         {
-          label: "React",
+          label: "React.js",
           id: "react",
           icon: <FaReact />,
         },
@@ -196,7 +191,12 @@ function Skills() {
         What I've Used
       </h1>
 
-      <div className='Skills-grid'>
+      <div
+        ref={ref}
+        className={`Skills-grid ${isVisible 
+                                ? "animate-fade-up-no-delay"
+                                : "opacity-0"}`}
+      >
         <Section title="Languages" group={languages} />
         <Section title="Frameworks & Libraries" group={frameworks} />
         <Section title="Tools & Databases" group={tools} />

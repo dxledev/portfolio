@@ -14,6 +14,8 @@
   --animate-fade-right-delayed-four: fade-right 0.25s linear 1.2s both;
   --animate-fade-right-delayed-five: fade-right 0.25s linear 1.6s both;
   --animate-fade-right-delayed-six: fade-right 0.25s linear 1.8s both;
+
+  --animate-fade-up-no-delay: small-fade-up 0.25s linear 0.2s both;
   @keyframes small-fade-up {
     from {
       opacity: 0;

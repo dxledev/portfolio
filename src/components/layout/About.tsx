@@ -7,14 +7,14 @@ function About() {
   const body = 
     "Hi there, visitor! I'm Dale, an LA County-based software engineer focused on building reliable, " +
     "user-focused applications across the full stack. I specialize in both React.js for frontend development " + 
-    "and C++ for backend development. My whole life I've loved to solve problems and puzzles " +
+    "and C++ for backend development, while my primary development environment is Linux. My whole life I've loved to solve problems and puzzles " +
     "and I've been able to express that desire through coding and developing tangible projects. Currently, I'm learning and " +
     "building projects independently and working hard to find a permanent full-time position where I can showcase my " +
     "skills in assisting building and improving systems.";
 
   const body2 =
-    "In my free time, I enjoy playing pool and the occasional guitar. I'm a die-hard Golden State Warriors fan and watching " +
-    "and talking about the NBA is one of my lifelong passions. If not then I'm probably theming some minute detail on my Linux desktop. " +
+    "In my free time, I enjoy playing pool and the occasional guitar. I'm a die-hard Golden State Warriors fan, and watching " +
+    "and talking about the NBA has been a lifelong passion of mine. If not, then I'm probably theming some minute detail on my Linux desktop. " +
     "I also like to socialize with people and I always love collaborating on something meaningful.";
 
   const body3 = "Let's get in touch!";

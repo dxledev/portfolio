@@ -35,7 +35,9 @@
   --color-background: var(--bg);
   --color-text: var(--text);
   --color-primary: var(--primary);
+  --color-primary-foreground: var(--bg);
   --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--bg);
   --color-tertiary: var(--tertiary);
   --color-highlight: var(--highlight);
   --color-subtle: var(--subtle);
@@ -48,6 +50,7 @@
   --color-input: var(--secondary);
   --color-ring: var(--highlight);
   --color-foreground: var(--text);
+  --color-muted: color-mix(in oklab, var(--primary) 18%, var(--bg));
   --color-muted-foreground: var(--tertiary);
   --color-border: var(--secondary);
   --color-destructive: var(--subtle);
