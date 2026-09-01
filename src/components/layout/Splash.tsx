@@ -88,6 +88,7 @@ function SplashInfo() {
             {phoneNumber}
           </div>
         </div>
+
         <div className='Splash-info-profile-links'>
           <Icon
             link=''
@@ -105,10 +106,17 @@ function SplashInfo() {
             alt="LinkedIn"
           />
         </div>
+
         <div>
-          <button className='Splash-info-button'>
-            Download CV
-          </button>
+          <div className='Splash-info-button'>
+            <a
+              href="/Dale-Peligro-Resume.pdf"
+              download="Dale-Peligro-Resume.pdf"
+            >
+              Download CV
+            </a>
+          </div>
+          
         </div>
       </div>
     </div>
