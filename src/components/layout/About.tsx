@@ -20,7 +20,7 @@ function About() {
   const body3 = "Let's get in touch!";
 
   return (
-    <div className='About' id="about">
+    <div className='About' id='about'>
       <div className='About-title'>
         <div className='text-4xl font-extrabold italic'>
           About Me

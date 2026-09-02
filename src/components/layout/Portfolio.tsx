@@ -107,7 +107,7 @@ function ProjectDialog({ instructions, title, link }: ProjectDialogProps) {
                 </div>
                 <a href={link} className='text-secondary underline decoration-2 decoration-secondary
                     hover:decoration-primary hover:text-primary'>
-                  {link}
+                  {link}.
                 </a>
               </div>
             )}

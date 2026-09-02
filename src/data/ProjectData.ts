@@ -24,7 +24,7 @@ const projects = [
       id: "netric",
       title: "Netric Sports",
       description: "A full-stack NBA analytics platform that features quick-lookups for \
-            user-favorited players and team stats. It features a precise \
+            user-favorited players' and team stats. It features a precise \
             search engine, local caching, and a MongoDB-backed worker queue for rapid stat retrieval.",
       action: "web" as const,
       github: "https://github.com/dxledev/netric",
@@ -34,7 +34,8 @@ const projects = [
         "React.js",
         "Tailwind",
         "Python",
-        "MongoDB"
+        "MongoDB",
+        "REST APIs",
       ],
     },
 
@@ -52,7 +53,7 @@ const projects = [
         "Tailwind",
         "Java",
         "Javalin",
-        "REST API"
+        "REST APIs"
       ],
     },
 
