@@ -122,7 +122,7 @@
 
 .Splash-info-button {
   @apply bg-background text-text p-5 text-xl cursor-pointer hover:bg-highlight hover:scale-110 duration-300
-    hover:outline-2 hover:outline-text drop-shadow-md drop-shadow-text animate-fade-in;
+    hover:outline-2 hover:outline-text drop-shadow-md drop-shadow-text animate-fade-in font-medium;
 }
 
 /* ABOUT SECTION */
@@ -145,20 +145,20 @@
 }
 
 .Skills-header {
-  @apply text-background font-extrabold text-4xl 2xl:text-5xl text-shadow-lg;
+  @apply text-background font-extrabold text-5xl text-shadow-lg;
 }
 
 .Skills-grid {
-  @apply grid grid-cols-1 xl:grid-cols-3 gap-12;
+  @apply flex flex-row flex-wrap justify-center items-center gap-12 w-full;
 }
 
 .Skills-section {
-  @apply rounded-4xl bg-primary flex flex-col h-92 w-110 xl:h-72 xl:w-90 2xl:h-92 2xl:w-110 
+  @apply rounded-4xl bg-primary flex flex-col h-92 w-110
     drop-shadow-lg shadow-text justify-center items-center gap-8;
 }
 
 .Skills-section-title {
-  @apply text-3xl xl:text-xl 2xl:text-3xl text-background font-bold text-shadow-lg text-shadow-text/30;
+  @apply text-3xl text-background font-bold text-shadow-lg text-shadow-text/30;
 }
 
 .Skills-section-row {
@@ -170,9 +170,58 @@
 }
 
 .Skills-section-skill-icon {
-  @apply text-6xl xl:text-4xl 2xl:text-6xl text-shadow-lg drop-shadow-md drop-shadow-text/30 hover:scale-110 duration-300;
+  @apply text-6xl text-shadow-lg drop-shadow-md drop-shadow-text/30 hover:scale-110 duration-300;
 }
 
 .Skills-section-skill-label {
-  @apply text-center text-xl xl:text-lg 2xl:text-xl text-shadow-lg text-shadow-text/30;
+  @apply text-center text-xl text-shadow-lg text-shadow-text/30;
 }
+
+/* PORTFOLIO SECTION */
+.Portfolio {
+  @apply w-full flex flex-col shrink-0 bg-background items-center gap-12 justify-center py-30;
+}
+
+.Portfolio-header {
+  @apply text-text font-extrabold text-5xl text-shadow-lg;
+}
+
+.Portfolio-grid {
+  @apply flex flex-row flex-wrap items-center justify-center gap-12 w-[80%];
+}
+
+.Portfolio-project {
+  @apply flex flex-col justify-around items-center gap-4 rounded-md drop-shadow-md drop-shadow-text
+    w-160 h-180 bg-secondary pb-4 pt-10 px-12;
+}
+
+.Portfolio-project-image {
+  @apply w-full h-[50%] rounded-md drop-shadow-md drop-shadow-text;
+}
+
+.Portfolio-project-title {
+  @apply text-3xl font-bold text-center text-background text-shadow-sm text-shadow-text;
+}
+
+.Portfolio-project-desc {
+  @apply text-xl text-center text-background text-shadow-sm text-shadow-text/80;
+}
+
+.Portfolio-project-button-demo,
+.Portfolio-project-button-code,
+.Portfolio-project-button-download {
+  @apply p-1.5 px-4 rounded-md text-xl font-semibold drop-shadow-sm drop-shadow-text cursor-pointer;
+}
+
+.Portfolio-project-button-demo {
+  @apply bg-custom-green hover:bg-custom-green/92 text-text hover:outline-2 hover:outline-background;
+}
+
+.Portfolio-project-button-code {
+  @apply bg-text text-background hover:bg-text/75 hover:outline-background hover:outline-2;
+}
+
+.Portfolio-project-button-download {
+  @apply bg-highlight text-text hover:bg-highlight/90 hover:outline-background hover:outline-2;
+}
+

@@ -8,6 +8,10 @@ function Nav() {
       </a>
 
       <a className='link' href="#skills">
+        Skills
+      </a>
+
+      <a className='link' href="#portfolio">
         Portfolio
       </a>
     </div>

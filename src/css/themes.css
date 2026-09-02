@@ -9,6 +9,7 @@
   --tertiary: #907aa9;
   --highlight: #ea9d34;
   --subtle: #d7827e;
+  --custom-green: #569f61;
 }
 
 [data-theme="nord"] {
@@ -19,6 +20,7 @@
   --tertiary: #81a1c1;
   --highlight: #ebcb8b;
   --subtle: #bf616a;
+  --custom-green: #a3be8c;
 }
 
 [data-theme="catppuccin"] {
@@ -29,6 +31,7 @@
   --tertiary: #f5c2e7;
   --highlight: #f5e0dc;
   --subtle: #fab387;
+  --custom-green: #a6e3a1;
 }
 
 @theme inline {
@@ -41,6 +44,7 @@
   --color-tertiary: var(--tertiary);
   --color-highlight: var(--highlight);
   --color-subtle: var(--subtle);
+  --color-custom-green: var(--custom-green);
 
   /* for shadcn components */
   --color-popover: var(--bg);
