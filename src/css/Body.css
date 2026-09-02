@@ -105,15 +105,15 @@
 }
 
 .Splash-info-profile-name {
-  @apply text-4xl font-bold animate-fade-right-delayed-two;
+  @apply text-4xl font-extrabold animate-fade-right-delayed-two text-shadow-sm;
 }
 
 .Splash-info-profile-major {
-  @apply text-xl flex flex-col items-center gap-0.5 animate-fade-right-delayed-three;
+  @apply text-xl flex flex-col items-center gap-0.5 animate-fade-right-delayed-three font-semibold;
 }
 
 .Splash-info-profile-contact {
-  @apply flex flex-col gap-1 items-center animate-fade-right-delayed-five;
+  @apply flex flex-col gap-1 items-center animate-fade-right-delayed-five font-semibold;
 }
 
 .Splash-info-profile-links {
@@ -192,11 +192,21 @@
 
 .Portfolio-project {
   @apply flex flex-col justify-around items-center gap-4 rounded-md drop-shadow-md drop-shadow-text
-    w-160 h-180 bg-secondary pb-4 pt-10 px-12;
+    w-160 h-195 bg-secondary pb-10 pt-10 px-12;
+}
+
+.Portfolio-project-image-wrapper {
+  @apply w-full h-auto max-h-[45%] rounded-md drop-shadow-md drop-shadow-text overflow-hidden;
+}
+
+.Portfolio-project-image-wrapper::after {
+  content: "";
+
+  @apply absolute inset-0 z-10 pointer-events-none bg-primary/15 mix-blend-color transition-colors duration-300 ease-in-out;
 }
 
 .Portfolio-project-image {
-  @apply w-full h-[50%] rounded-md drop-shadow-md drop-shadow-text;
+  @apply w-full h-full rounded-md;
 }
 
 .Portfolio-project-title {
@@ -207,13 +217,18 @@
   @apply text-xl text-center text-background text-shadow-sm text-shadow-text/80;
 }
 
-.Portfolio-project-button-demo,
+.Portfolio-project-tag {
+  @apply rounded-full text-center border-2 border-primary text-background font-medium text-lg text-shadow-sm
+    text-shadow-text/60 drop-shadow-sm drop-shadow-text px-4 py-1;
+}
+
+.Portfolio-project-button-view,
 .Portfolio-project-button-code,
 .Portfolio-project-button-download {
   @apply p-1.5 px-4 rounded-md text-xl font-semibold drop-shadow-sm drop-shadow-text cursor-pointer;
 }
 
-.Portfolio-project-button-demo {
+.Portfolio-project-button-view {
   @apply bg-custom-green hover:bg-custom-green/92 text-text hover:outline-2 hover:outline-background;
 }
 
@@ -223,5 +238,17 @@
 
 .Portfolio-project-button-download {
   @apply bg-highlight text-text hover:bg-highlight/90 hover:outline-background hover:outline-2;
+}
+
+.Portfolio-project-dialog-command-field-wrapper {
+  @apply flex items-center gap-2 rounded-md border border-border bg-background p-2;
+}
+
+.Portfolio-project-dialog-command-field {
+  @apply min-w-0 flex-1 bg-transparent font-mono text-foreground outline-none text-lg;
+}
+
+textarea.Portfolio-project-dialog-command-field {
+  @apply field-sizing-content resize-none overflow-hidden;
 }
 
