@@ -76,8 +76,8 @@
 }
 
 .Splash-greeting-image-text {
-  @apply text-background flex flex-col gap-7 
-    md:self-end pt-10 pb-10 md:pt-0 md:pb-20 relative z-10;
+  @apply text-background flex flex-col gap-7 self-center
+    lg:self-end pt-10 pb-10 lg:pt-0 lg:pb-20 relative z-10;
 
   text-shadow: 
     -2px -2px 0 var(--color-text),
@@ -147,20 +147,20 @@
 }
 
 .Skills-header {
-  @apply text-background font-extrabold text-5xl text-shadow-lg;
+  @apply text-background font-extrabold text-3xl sm:text-5xl text-shadow-lg;
 }
 
 .Skills-grid {
-  @apply flex flex-row flex-wrap justify-center items-center gap-12 w-full;
+  @apply flex flex-row flex-wrap justify-center items-center w-full;
 }
 
 .Skills-section {
   @apply rounded-4xl bg-primary flex flex-col h-92 w-108
-    drop-shadow-lg shadow-text justify-center items-center gap-8;
+    drop-shadow-lg shadow-text justify-center items-center gap-8 mx-6 sm:mx-8;
 }
 
 .Skills-section-title {
-  @apply text-2xl text-background font-bold text-shadow-lg text-shadow-text/30;
+  @apply text-xl sm:text-2xl text-background font-bold text-shadow-lg text-shadow-text/30;
 }
 
 .Skills-section-row {
@@ -176,7 +176,7 @@
 }
 
 .Skills-section-skill-icon {
-  @apply text-6xl text-shadow-lg drop-shadow-md drop-shadow-text/30 hover:scale-110 duration-300;
+  @apply text-5xl sm:text-6xl text-shadow-lg drop-shadow-md drop-shadow-text/30 hover:scale-110 duration-300;
 }
 
 .Skills-section-skill-label {
@@ -189,7 +189,7 @@
 }
 
 .Portfolio-header {
-  @apply text-text font-extrabold text-5xl text-shadow-lg;
+  @apply text-text font-extrabold text-3xl sm:text-5xl text-shadow-lg;
 }
 
 .Portfolio-grid {
@@ -198,11 +198,11 @@
 
 .Portfolio-project {
   @apply flex flex-col justify-around items-center gap-4 rounded-md drop-shadow-md drop-shadow-text
-    w-160 h-195 bg-secondary pb-10 pt-10 px-12;
+    w-auto sm:w-160 h-auto sm:h-195 bg-secondary pb-10 pt-10 px-8 sm:px-12;
 }
 
 .Portfolio-project-image-wrapper {
-  @apply w-full h-auto max-h-[45%] rounded-md drop-shadow-md drop-shadow-text overflow-hidden;
+  @apply w-full h-auto sm:max-h-[45%] rounded-md drop-shadow-md drop-shadow-text overflow-hidden;
 }
 
 .Portfolio-project-image-wrapper::after {

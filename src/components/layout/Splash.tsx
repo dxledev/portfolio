@@ -15,14 +15,29 @@ function SplashGreeting() {
   const [scrollOffset, setScrollOffset] = useState(0);
 
   useEffect(() => {
+    const parallaxBreakpoint = window.matchMedia('(min-width: 64rem)');
+
     function handleScroll() {
       setScrollOffset(Math.min(window.scrollY * 0.45, 300));
     }
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    function syncParallax() {
+      window.removeEventListener('scroll', handleScroll);
+
+      if (parallaxBreakpoint.matches) {
+        handleScroll();
+        window.addEventListener('scroll', handleScroll, { passive: true }); 
+      } else {
+        setScrollOffset(0);
+      }
+    }
+
+    syncParallax();
+    parallaxBreakpoint.addEventListener('change', syncParallax);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      parallaxBreakpoint.removeEventListener('change', syncParallax);
     };
   }, []);
 
@@ -41,7 +56,7 @@ function SplashGreeting() {
             HELLO, I'M
           </div>
           <div 
-            className='text-6xl lg:text-7xl xl:text-9xl font-extrabold font-playfair'
+            className='text-5xl lg:text-7xl xl:text-9xl font-extrabold font-playfair'
           >Dale Peligro.</div>
           <div
             className='text-2xl lg:text-4xl xl:text-5xl italic 
