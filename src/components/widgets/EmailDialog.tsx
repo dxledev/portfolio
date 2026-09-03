@@ -11,10 +11,12 @@ import {
 } from "./Dialog.tsx";
 import SlidingAlert from "./SlidingAlert.tsx";
 
-import { useState, type SubmitEvent as ReactSubmitEvent } from 'react';
+import { useState, useRef, type SubmitEvent as ReactSubmitEvent } from 'react';
 import { submitContact } from "../../services/contact.ts";
 import { IoIosSend } from "react-icons/io";
 import { Loader2 } from "lucide-react";
+
+import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 
 type EmailDialogProps= {
   open: boolean;
@@ -27,12 +29,20 @@ function EmailDialog({ open, onOpenChange, email }: EmailDialogProps) {
   const [showCopiedAlert, setShowCopiedAlert] = useState(false);
   const [showSentAlert, setShowSentAlert] = useState(false);
 
+  // turnstile
+  const turnstileRef = useRef<TurnstileInstance | null>(null);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+
+  const turnstileSiteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY;
+
   function handleOpenChange(nextOpen: boolean) {
     if (!nextOpen) {
       setShowCopiedAlert(false);
       setShowSentAlert(false);
       setSubmissionStatus("idle");
       setSubmissionMessage("");
+      setTurnstileToken(null);
+      turnstileRef.current?.reset();
     }
 
     onOpenChange(nextOpen);
@@ -61,10 +71,11 @@ function EmailDialog({ open, onOpenChange, email }: EmailDialogProps) {
 
     if (
       typeof senderEmail !== "string" ||
-      typeof message !== "string"
+      typeof message !== "string" ||
+      !turnstileToken
     ) {
       setSubmissionStatus("error");
-      setSubmissionMessage("Invalid form submission.");
+      setSubmissionMessage("Please complete the verification.");
       return;
     }
 
@@ -73,7 +84,7 @@ function EmailDialog({ open, onOpenChange, email }: EmailDialogProps) {
     setSubmissionMessage("");
 
     try {
-      await submitContact({ senderEmail, message });
+      await submitContact({ senderEmail, message, turnstileToken });
 
       form.reset();
       setSubmissionStatus("success");
@@ -85,6 +96,9 @@ function EmailDialog({ open, onOpenChange, email }: EmailDialogProps) {
           ? error.message
           : "Unable to send your message.",
       );
+    } finally {
+      setTurnstileToken(null);
+      turnstileRef.current?.reset();
     }
   }
 
@@ -130,7 +144,7 @@ function EmailDialog({ open, onOpenChange, email }: EmailDialogProps) {
                 maxLength={254}
                 placeholder='Your email' 
                 className='Email-dialog-email'
-                disabled={submissionStatus === "submitting"}
+                disabled={submissionStatus === "submitting" || !turnstileToken}
               />
               <textarea 
                 name="message"
@@ -138,15 +152,29 @@ function EmailDialog({ open, onOpenChange, email }: EmailDialogProps) {
                 maxLength={5000}
                 placeholder='Your message' 
                 className='Email-dialog-message'
-                disabled={submissionStatus === "submitting"}
+                disabled={submissionStatus === "submitting" || !turnstileToken}
               />
             </div>
+
+            {/* Turnstile for user verification*/}
+            <Turnstile
+              ref={turnstileRef}
+              siteKey={turnstileSiteKey}
+              onSuccess={setTurnstileToken}
+              onExpire={() => setTurnstileToken(null)}
+              onError={() => setTurnstileToken(null)}
+              options={{
+                action: "contact",
+                theme: "auto",
+                size: "flexible",
+              }}
+            />
 
             <button 
               type='submit'
               className='rounded-xl text-background bg-text py-1 px-4 hover:bg-text/85 cursor-pointer drop-shadow-md 
                         drop-shadow-text/75 flex flex-row gap-2 items-center justify-center'
-              disabled={submissionStatus === "submitting"}
+              disabled={submissionStatus === "submitting" || !turnstileToken}
             >
               {submissionStatus === "submitting" 
                 ? <Loader2 className='w-auto h-[75%] animate-spin text-primary font-bold' /> 

@@ -3,6 +3,7 @@ import { supabase } from "../lib/supabase.ts";
 type ContactSubmission = {
   senderEmail: string;
   message: string;
+  turnstileToken: string;
 };
 
 export async function submitContact(

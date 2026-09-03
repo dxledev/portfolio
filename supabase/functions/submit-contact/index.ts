@@ -7,17 +7,19 @@ import "@supabase/functions-js/edge-runtime.d.ts";
 import { withSupabase } from "@supabase/server";
 
 import type { Database } from "../_shared/database.types.ts";
-
 import { sendContactEmail } from "./send-contact-email.ts";
+import { verifyTurnstileToken } from "./verify-turnstile.ts";
 
 const limits = {
   emailLength: 254,
   messageLength: 5000,
+  turnstileTokenLength: 2048,
 };
 
 type ContactSubmission = {
   senderEmail: string;
   message: string;
+  turnstileToken: string;
 };
 
 type ValidationResult =
@@ -32,21 +34,30 @@ function validateSubmission(body: unknown): ValidationResult {
   const record = body as Record<string, unknown>;
 
   if (
-    typeof record.senderEmail !== "string" || 
-    typeof record.message !== "string"
+    typeof record.senderEmail !== "string" ||
+    typeof record.message !== "string" ||
+    typeof record.turnstileToken !== "string"
   ) {
     return { valid: false, message: "Email and message are required" };
   }
 
   const senderEmail = record.senderEmail.trim().toLowerCase();
   const message = record.message.trim();
+  const turnstileToken = record.turnstileToken.trim();
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (
-    senderEmail.length > limits.emailLength || 
+    senderEmail.length > limits.emailLength ||
     !emailPattern.test(senderEmail)
   ) {
     return { valid: false, message: "Invalid email address" };
+  }
+
+  if (
+    turnstileToken.length === 0 ||
+    turnstileToken.length > limits.turnstileTokenLength
+  ) {
+    return { valid: false, message: "Invalid verification token" };
   }
 
   if (message.length === 0 || message.length > limits.messageLength) {
@@ -55,7 +66,7 @@ function validateSubmission(body: unknown): ValidationResult {
 
   return {
     valid: true,
-    submission: { senderEmail, message },
+    submission: { senderEmail, message, turnstileToken },
   };
 }
 
@@ -88,6 +99,28 @@ export default {
       return Response.json(
         { message: validation.message },
         { status: 400 },
+      );
+    }
+
+    let turnstileValid: boolean;
+
+    try {
+      turnstileValid = await verifyTurnstileToken(
+        validation.submission.turnstileToken,
+      );
+    } catch (error) {
+      console.error("Turnstile verification unavailable:", error);
+
+      return Response.json(
+        { message: "Verification unavailable." },
+        { status: 503 },
+      );
+    }
+
+    if (!turnstileValid) {
+      return Response.json(
+        { message: "Verification failed." },
+        { status: 403 },
       );
     }
 
