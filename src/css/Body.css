@@ -61,7 +61,7 @@
 
 /* SPLASH SECTION */
 .Splash {
-  @apply lg:h-[66vh] w-full flex flex-col md:flex-row shrink-0 bg-primary;
+  @apply lg:h-[66vh] w-full flex flex-col lg:flex-row shrink-0 bg-primary;
 }
 
 .Splash-greeting {
@@ -70,13 +70,13 @@
 }
 
 .Splash-greeting-image {
-  @apply h-[115%] lg:w-full bg-center bg-no-repeat flex justify-center
+  @apply h-[115%] lg:w-full bg-center bg-no-repeat justify-center flex flex-row
     rounded-2xl drop-shadow-lg drop-shadow-text bg-primary/30 bg-blend-luminosity 
     transition-colors duration-300 ease-in-out bg-cover animate-fade-up;
 }
 
 .Splash-greeting-image-text {
-  @apply text-background text-2xl lg:text-5xl flex flex-col gap-7 
+  @apply text-background flex flex-col gap-7 
     md:self-end pt-10 pb-10 md:pt-0 md:pb-20 relative z-10;
 
   text-shadow: 
@@ -155,12 +155,12 @@
 }
 
 .Skills-section {
-  @apply rounded-4xl bg-primary flex flex-col h-96 w-120
+  @apply rounded-4xl bg-primary flex flex-col h-92 w-108
     drop-shadow-lg shadow-text justify-center items-center gap-8;
 }
 
 .Skills-section-title {
-  @apply text-3xl text-background font-bold text-shadow-lg text-shadow-text/30;
+  @apply text-2xl text-background font-bold text-shadow-lg text-shadow-text/30;
 }
 
 .Skills-section-row {
@@ -180,7 +180,7 @@
 }
 
 .Skills-section-skill-label {
-  @apply text-center text-xl text-shadow-lg text-shadow-text/30;
+  @apply text-center text-lg text-shadow-lg text-shadow-text/30;
 }
 
 /* PORTFOLIO SECTION */

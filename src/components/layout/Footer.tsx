@@ -9,7 +9,6 @@ function Footer() {
         <div>Back End - Supabase, PostgreSQL</div>
         <div>Host/DNS - Cloudflare</div>
       </div>
-      <div className='italic'>x Unique Visitors</div>
     </div>
   );
 }

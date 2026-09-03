@@ -34,7 +34,7 @@ function ThemePicker() {
       onValueChange={handleThemeChange}
     >
       <SelectTrigger 
-        className="md:w-40 data-[size=default]:h-8 text-sm sm:text-xl
+        className="md:w-40 data-[size=default]:h-8 text-sm sm:text-lg
                       cursor-pointer transition-colors duration-300"
       >
         <SelectValue placeholder="Theme" />
@@ -45,7 +45,7 @@ function ThemePicker() {
             <SelectItem 
               key={item.value} 
               value={item.value}
-              className="cursor-pointer text-xl"
+              className="cursor-pointer text-sm sm:text-lg"
             >
               {item.label}
             </SelectItem>

@@ -2,7 +2,8 @@
 @import './themes.css';
 
 .Nav {
-  @apply flex flex-row text-sm sm:text-xl gap-8 items-center justify-center translate-x-10.5;
+  @apply flex flex-row flex-wrap text-sm sm:text-lg gap-x-8 gap-y-2 pr-20 items-center justify-center translate-x-10.5
+    self-center sm:self-start;
 }
 
 .link {
