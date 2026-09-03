@@ -4,20 +4,28 @@ import '../../css/themes.css';
 import type { ReactNode } from 'react';
 
 type IconProps = {
-  link: string,
+  link?: string,
+  onClick?: () => void;
   icon: ReactNode,
   alt: string,
 }
 
-function Icon({ link, icon, alt }: IconProps) {
+function Icon({ link, onClick, icon, alt }: IconProps) {
   return (
-    <a 
-      href={link}
-      aria-label={alt}
-      className="Icon"
-    >
-      {icon}
-    </a>
+    <div className="Icon">
+      {link !== undefined ? (
+        <a 
+          href={link}
+          aria-label={alt}
+        >
+          {icon}
+        </a>
+      ) : (
+        <button onClick={onClick} className='cursor-pointer'>
+          {icon}
+        </button>
+      )}
+    </div>
   );
 }
 

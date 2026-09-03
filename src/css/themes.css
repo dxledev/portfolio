@@ -12,6 +12,17 @@
   --custom-green: #569f61;
 }
 
+[data-theme="bauhaus"] {
+  --bg: #EAEFF5;
+  --text: #101318;
+  --primary: #E37B66;
+  --secondary: #ce705d;
+  --tertiary: #E0A568;
+  --highlight: #789FA2;
+  --subtle: #E7A46F;
+  --custom-green: #82ce5d;
+}
+
 [data-theme="gruvbox"] {
   --bg: #fbf1c7;
   --text: #282828;
@@ -19,7 +30,7 @@
   --secondary: #79740e;
   --tertiary: #d79921;
   --highlight: #d65d0e;
-  --sublte: #9d0006;
+  --subtle: #9d0006;
   --custom-green: #427b58;
 }
 
@@ -30,7 +41,7 @@
   --secondary: #798c5d;
   --tertiary: #7FBBB3;
   --highlight: #E69875;
-  --sublte: #E67E80;
+  --subtle: #E67E80;
   --custom-green: #83C092;
 }
 
@@ -69,6 +80,8 @@
   --color-custom-green: var(--custom-green);
 
   /* for shadcn components */
+  --color-card: var(--bg);
+  --color-card-foreground: var(--text);
   --color-popover: var(--bg);
   --color-popover-foreground: var(--text);
   --color-accent: var(--secondary);

@@ -7,7 +7,7 @@ function About() {
   const body = 
     "Hi there, visitor! I'm Dale, an LA/SGV County-based software engineer focused on building reliable, " +
     "user-focused applications across the full stack. I specialize in both React.js for frontend development " + 
-    "and C++ for backend development, while my primary development environment is Linux. My whole life I've loved to solve problems and puzzles " +
+    "and C++ for backend/application development, while my primary development environment is Linux. My whole life I've loved to solve problems and puzzles " +
     "and I've been able to express that desire through coding and developing tangible projects. Currently, I'm learning and " +
     "building projects independently and working hard to find a permanent full-time position where I can showcase my " +
     "skills in assisting building and improving systems.";

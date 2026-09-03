@@ -79,6 +79,30 @@ function DialogContent({
   );
 }
 
+type ControlledDialogProps = Omit<
+  DialogPrimitive.Root.Props,
+  "children" | "defaultOpen" | "onOpenChange" | "open"
+> & {
+  children: React.ReactNode;
+  contentProps?: Omit<React.ComponentProps<typeof DialogContent>, "children">;
+  onOpenChange: NonNullable<DialogPrimitive.Root.Props["onOpenChange"]>;
+  open: boolean;
+};
+
+function ControlledDialog({
+  children,
+  contentProps,
+  onOpenChange,
+  open,
+  ...rootProps
+}: ControlledDialogProps) {
+  return (
+    <Dialog {...rootProps} open={open} onOpenChange={onOpenChange}>
+      <DialogContent {...contentProps}>{children}</DialogContent>
+    </Dialog>
+  );
+}
+
 function DialogHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -143,6 +167,7 @@ function DialogDescription({
 }
 
 export {
+  ControlledDialog,
   Dialog,
   DialogClose,
   DialogContent,
@@ -154,3 +179,4 @@ export {
   DialogTitle,
   DialogTrigger,
 };
+export type { ControlledDialogProps };

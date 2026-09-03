@@ -5,7 +5,7 @@
   font-family: "JetBrainsMono Nerd Font";
 
   @apply inline-flex size-12 items-center justify-center rounded-full bg-secondary leading-none
-    shadow-sm shadow-text hover:scale-115 duration-180 text-background;
+    shadow-sm shadow-text hover:scale-115 duration-180 text-background cursor-pointer;
 }
 
 .Icon-glyph {

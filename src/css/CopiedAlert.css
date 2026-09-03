@@ -1,0 +1,38 @@
+.Copied-alert {
+  animation: copied-alert-slide-in 200ms ease-out both;
+}
+
+.Copied-alert[data-closing] {
+  animation: copied-alert-slide-out 200ms ease-in both;
+}
+
+@keyframes copied-alert-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(calc(100% + 1rem));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes copied-alert-slide-out {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(calc(100% + 1rem));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .Copied-alert,
+  .Copied-alert[data-closing] {
+    animation: none;
+  }
+}

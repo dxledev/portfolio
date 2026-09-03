@@ -1,0 +1,22 @@
+@import 'tailwindcss';
+@import './themes.css';
+
+.Email-dialog-title {
+  @apply text-text text-3xl self-center;
+}
+
+.Email-dialog-description {
+  @apply text-text text-xl flex flex-col justify-center items-center gap-4.5;
+}
+
+.Email-dialog-form {
+  @apply flex flex-col justify-center items-center w-full gap-2;
+}
+
+.Email-dialog-email {
+  @apply w-full p-2 rounded-lg border-text/70 border-2;
+}
+
+.Email-dialog-message {
+  @apply w-full min-h-30 p-2 rounded-lg border-text/70 border-2 field-sizing-content resize-none overflow-hidden;
+}

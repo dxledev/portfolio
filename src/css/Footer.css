@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@import './themes.css';
+
+.Footer {
+  @apply flex flex-col items-center justify-center gap-2.5 w-full text-text pt-12 pb-6 text-lg;
+}

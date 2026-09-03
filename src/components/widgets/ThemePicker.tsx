@@ -12,6 +12,7 @@ import {
 function ThemePicker() {
   const items = [
     { label: "Rosé Pine", value: "rose-pine" },
+    { label: "Bauhaus", value: "bauhaus" },
     { label: "Everforest", value: "everforest" },
     { label: "Gruvbox", value: "gruvbox" },
     { label: "Nord", value: "nord" },

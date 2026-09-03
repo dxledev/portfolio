@@ -7,6 +7,10 @@ import Icon from '../widgets/Icon.tsx';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { IoMdMail } from "react-icons/io";
 
+import EmailDialog from "../widgets/EmailDialog.tsx";
+import CopiedAlert from "../widgets/CopiedAlert.tsx";
+import { useCopyToClipboard } from "../../helpers/useCopyToClipboard.tsx"
+
 function SplashGreeting() {
   const [scrollOffset, setScrollOffset] = useState(0);
 
@@ -39,7 +43,7 @@ function SplashGreeting() {
           <div 
             className='text-7xl lg:text-8xl xl:text-9xl font-extrabold font-playfair'
           >Dale Peligro.</div>
-          <div 
+          <div
             className='text-3xl lg:text-4xl xl:text-5xl italic font-extrabold font-cormorant tracking-wide'
           >
             Software Engineer.
@@ -51,6 +55,11 @@ function SplashGreeting() {
 }
 
 function SplashInfo() {
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+
+  const [copyToClipboard] = useCopyToClipboard();
+
   const name = "Dale Peligro.";
   const majorLine1 = "B.S. in Science,";
   const majorLine2 = "Computer Science.";
@@ -81,9 +90,20 @@ function SplashInfo() {
 
       <div className='flex flex-col gap-8 items-center justify-start pb-12'>
         <div className='Splash-info-profile-contact'>
-          <div className='text-xl'>
+          <div 
+            onClick={() => {
+              setShowAlert(true)
+              copyToClipboard(email)
+            }} 
+            className='text-xl hover:underline hover:text-secondary cursor-pointer'>
             {email}
           </div>
+          {showAlert && (
+            <CopiedAlert
+              item="Email"
+              onDismiss={() => setShowAlert(false)}
+            />
+          )}
           <div className='text-xl'>
             {phoneNumber}
           </div>
@@ -91,9 +111,14 @@ function SplashInfo() {
 
         <div className='Splash-info-profile-links'>
           <Icon
-            link=''
+            onClick={() => setDialogOpen(true)}
             icon={<IoMdMail className='size-8' />}
             alt='Email'
+          />
+          <EmailDialog
+            open={dialogOpen}
+            onOpenChange={setDialogOpen}
+            email={email}
           />
           <Icon
             link='https://github.com/dxledev'
