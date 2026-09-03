@@ -14,9 +14,10 @@
 }
 
 .Email-dialog-email {
-  @apply w-full p-2 rounded-lg border-text/70 border-2;
+  @apply w-full p-2 rounded-lg border-text/70 border-2 focus:outline-secondary text-text;
 }
 
 .Email-dialog-message {
-  @apply w-full min-h-30 p-2 rounded-lg border-text/70 border-2 field-sizing-content resize-none overflow-hidden;
+  @apply w-full min-h-30 p-2 rounded-lg border-text/70 border-2 field-sizing-content resize-none overflow-hidden
+    focus:outline-secondary text-text;
 }

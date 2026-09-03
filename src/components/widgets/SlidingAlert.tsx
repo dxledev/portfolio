@@ -7,10 +7,11 @@ import {
   Alert, 
   AlertDescription,
   AlertTitle, 
-} from "../widgets/Alert.tsx";
+} from "./Alert.tsx";
 
 type CopiedAlertProps = {
-  item: string;
+  title: string;
+  body: string;
   onDismiss: () => void;
   durationMs?: number;
 }
@@ -18,9 +19,10 @@ type CopiedAlertProps = {
 const exitAnimationDurationMs = 200;
 
 function CopiedAlert({
-  item,
+  title,
+  body,
   onDismiss,
-  durationMs = 2000,
+  durationMs = 3000,
 }: CopiedAlertProps) {
   const [isClosing, setIsClosing] = useState(false);
 
@@ -47,9 +49,9 @@ function CopiedAlert({
       data-closing={isClosing || undefined}
     >
       <CircleCheckIcon />
-      <AlertTitle className='text-lg'>Clipboard</AlertTitle>
-      <AlertDescription className="text-secondary">
-        {item} copied successfully!
+      <AlertTitle className='text-xl text-secondary font-semibold'>{title}</AlertTitle>
+      <AlertDescription className="text-text text-[16px]">
+        {body}
       </AlertDescription>
     </Alert>,
     document.body,

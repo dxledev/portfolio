@@ -152,7 +152,7 @@
 }
 
 .Skills-section {
-  @apply rounded-4xl bg-primary flex flex-col h-92 w-110
+  @apply rounded-4xl bg-primary flex flex-col h-96 w-120
     drop-shadow-lg shadow-text justify-center items-center gap-8;
 }
 
@@ -161,7 +161,11 @@
 }
 
 .Skills-section-row {
-  @apply flex flex-row gap-12 text-background;
+  @apply flex flex-row gap-x-12 text-background;
+}
+
+.Skills-section-row#tools-row-2 {
+  @apply gap-x-6!;
 }
 
 .Skills-section-skill {

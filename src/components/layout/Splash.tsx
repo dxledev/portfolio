@@ -8,7 +8,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { IoMdMail } from "react-icons/io";
 
 import EmailDialog from "../widgets/EmailDialog.tsx";
-import CopiedAlert from "../widgets/CopiedAlert.tsx";
+import SlidingAlert from "../widgets/SlidingAlert.tsx";
 import { useCopyToClipboard } from "../../helpers/useCopyToClipboard.tsx"
 
 function SplashGreeting() {
@@ -99,8 +99,9 @@ function SplashInfo() {
             {email}
           </div>
           {showAlert && (
-            <CopiedAlert
-              item="Email"
+            <SlidingAlert
+              title='Clipboard'
+              body='Email copied!'
               onDismiss={() => setShowAlert(false)}
             />
           )}

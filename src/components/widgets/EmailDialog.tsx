@@ -9,10 +9,12 @@ import {
   DialogTitle,
   ControlledDialog,
 } from "./Dialog.tsx";
-import CopiedAlert from "../widgets/CopiedAlert.tsx";
+import SlidingAlert from "./SlidingAlert.tsx";
 
-import { useState } from 'react';
+import { useState, type SubmitEvent as ReactSubmitEvent } from 'react';
+import { submitContact } from "../../services/contact.ts";
 import { IoIosSend } from "react-icons/io";
+import { Loader2 } from "lucide-react";
 
 type EmailDialogProps= {
   open: boolean;
@@ -22,14 +24,68 @@ type EmailDialogProps= {
 
 function EmailDialog({ open, onOpenChange, email }: EmailDialogProps) {
   const [copyToClipboard] = useCopyToClipboard();
-  const [showAlert, setShowAlert] = useState(false);
+  const [showCopiedAlert, setShowCopiedAlert] = useState(false);
+  const [showSentAlert, setShowSentAlert] = useState(false);
 
   function handleOpenChange(nextOpen: boolean) {
     if (!nextOpen) {
-      setShowAlert(false);
+      setShowCopiedAlert(false);
+      setShowSentAlert(false);
+      setSubmissionStatus("idle");
+      setSubmissionMessage("");
     }
 
     onOpenChange(nextOpen);
+  }
+
+  // Email Dialog Submission Handling
+  type SubmissionStatus =
+    | "idle"
+    | "submitting"
+    | "success"
+    | "error";
+
+  const [submissionStatus, setSubmissionStatus] = 
+    useState<SubmissionStatus>("idle");
+  const [, setSubmissionMessage] = useState("");
+
+  async function handleSubmit(
+    event: ReactSubmitEvent<HTMLFormElement>,
+  ) {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const senderEmail = formData.get("senderEmail");
+    const message = formData.get("message");
+
+    if (
+      typeof senderEmail !== "string" ||
+      typeof message !== "string"
+    ) {
+      setSubmissionStatus("error");
+      setSubmissionMessage("Invalid form submission.");
+      return;
+    }
+
+    // if passes continue
+    setSubmissionStatus("submitting");
+    setSubmissionMessage("");
+
+    try {
+      await submitContact({ senderEmail, message });
+
+      form.reset();
+      setSubmissionStatus("success");
+      setShowSentAlert(true);
+    } catch (error) {
+      setSubmissionStatus("error");
+      setSubmissionMessage(
+        error instanceof Error
+          ? error.message
+          : "Unable to send your message.",
+      );
+    }
   }
 
   return (
@@ -43,40 +99,71 @@ function EmailDialog({ open, onOpenChange, email }: EmailDialogProps) {
           Contact Me
         </DialogTitle>
 
-        <div className='text-xl text-text text-center pb-3'>
+        <DialogDescription className="text-center text-text text-xl pb-2">
           Reach out to me at <span className='underline hover:text-secondary cursor-pointer'
             onClick={() => {
-              setShowAlert(true);
+              setShowCopiedAlert(true);
               copyToClipboard(email)
             }}
           >
             {email} 
           </span> or through the form below:
-        </div>
-        {showAlert && (
-          <CopiedAlert 
-            item="Email" 
-            onDismiss={() => setShowAlert(false)}
-          />
-        )}
+          {showCopiedAlert && (
+            <SlidingAlert 
+              title='Clipboard'
+              body='Email copied!'
+              onDismiss={() => setShowCopiedAlert(false)}
+            />
+          )}
+        </DialogDescription>
 
-        <DialogDescription className="Email-dialog-description">
-          <form className='Email-dialog-form gap-4.5!'>
+        <div className='Email-dialog-description'>
+          <form 
+            className='Email-dialog-form gap-4.5!'
+            onSubmit={handleSubmit}
+          >
             <div className='Email-dialog-form'>
-              <input placeholder='Your email' className='Email-dialog-email'/>
-              <textarea placeholder='Your message' className='Email-dialog-message'/>
+              <input 
+                name="senderEmail"
+                type="email"
+                required
+                maxLength={254}
+                placeholder='Your email' 
+                className='Email-dialog-email'
+                disabled={submissionStatus === "submitting"}
+              />
+              <textarea 
+                name="message"
+                required
+                maxLength={5000}
+                placeholder='Your message' 
+                className='Email-dialog-message'
+                disabled={submissionStatus === "submitting"}
+              />
             </div>
 
             <button 
               type='submit'
               className='rounded-xl text-background bg-text py-1 px-4 hover:bg-text/85 cursor-pointer drop-shadow-md 
                         drop-shadow-text/75 flex flex-row gap-2 items-center justify-center'
+              disabled={submissionStatus === "submitting"}
             >
-              <IoIosSend />
-              Submit
+              {submissionStatus === "submitting" 
+                ? <Loader2 className='w-auto h-[75%] animate-spin text-primary font-bold' /> 
+                : <IoIosSend />
+              }
+              {submissionStatus === "submitting" ? "Sending..." : "Submit"}
             </button>
           </form>
-        </DialogDescription>
+          {showSentAlert && (
+            <SlidingAlert
+              title='Contact'
+              body='Message sent successfully! I will get in contact with you as soon as possible.'
+              onDismiss={() => setShowSentAlert(false)}
+              durationMs={5500}
+            />
+          )}
+        </div>
       </DialogHeader>
     </ControlledDialog>
   );

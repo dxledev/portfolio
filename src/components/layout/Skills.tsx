@@ -8,7 +8,7 @@ import { FaHtml5, FaCss3Alt, FaPython, FaJava } from "react-icons/fa";
 import { BiLogoTypescript, BiLogoCPlusPlus } from "react-icons/bi";
 
 import { FaReact, FaNodeJs } from "react-icons/fa";
-import { RiTailwindCssFill, RiNextjsLine } from "react-icons/ri";
+import { RiTailwindCssFill, RiNextjsLine, RiSupabaseFill } from "react-icons/ri";
 import { SiRaylib } from "react-icons/si";
 import { TbApiApp } from "react-icons/tb";
 
@@ -63,7 +63,7 @@ function Skills() {
 
   const languages = [
     { 
-      id: "row1",
+      id: "lang-row-1",
       row: [
         {
           label: "HTML",
@@ -83,7 +83,7 @@ function Skills() {
       ],
     },
     {
-      id: "row2",
+      id: "lang-row-2",
       row: [
         {
           label: "C++",
@@ -106,7 +106,7 @@ function Skills() {
 
   const frameworks = [
     {
-      id: "row1",
+      id: "fw-row-1",
       row: [
         {
           label: "React.js",
@@ -126,7 +126,7 @@ function Skills() {
       ]
     },
     {
-      id: "row2",
+      id: "fw-row-2",
       row: [
         {
           label: "Node.js",
@@ -134,7 +134,7 @@ function Skills() {
           icon: <FaNodeJs />,
         },
         {
-          label: "Raylib",
+          label: "raylib",
           id: "raylib",
           icon: <SiRaylib />,
         },
@@ -149,7 +149,7 @@ function Skills() {
 
   const tools = [
     {
-      id: "row1",
+      id: "tools-row-1",
       row: [
         {
           label: "Git",
@@ -169,18 +169,24 @@ function Skills() {
       ]
     },
     {
-      id: "row2",
+      id: "tools-row-2",
       row: [
+        
+        {
+          label: "PostgreSQL",
+          id: "postgresql",
+          icon: <DiPostgresql />,
+        },
+        {
+          label: "Supabase",
+          id: "supabase",
+          icon: <RiSupabaseFill />,
+        },
         {
           label: "MongoDB",
           id: "mongodb",
           icon: <DiMongodb />,
         },
-        {
-          label: "PostgreSQL",
-          id: "postgresql",
-          icon: <DiPostgresql />,
-        }
       ]
     }
   ]
