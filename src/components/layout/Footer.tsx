@@ -8,7 +8,7 @@ function Footer() {
         <div>Front End - React, Tailwind, shadcn/ui lib</div>
         <div>Back End - Supabase</div>
       </div>
-      <div>x Unique Visitors</div>
+      <div className='italic'>x Unique Visitors</div>
     </div>
   );
 }

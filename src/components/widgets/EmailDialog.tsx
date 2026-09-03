@@ -38,12 +38,12 @@ function EmailDialog({ open, onOpenChange, email }: EmailDialogProps) {
       onOpenChange={handleOpenChange}
       contentProps={{ className: "lg:max-w-xl", showCloseButton: false }}
     >
-      <DialogHeader className='flex flex-col gap-4'>
+      <DialogHeader className='flex flex-col'>
         <DialogTitle className="Email-dialog-title">
           Contact Me
         </DialogTitle>
 
-        <div className='text-xl text-text text-center'>
+        <div className='text-xl text-text text-center pb-3'>
           Reach out to me at <span className='underline hover:text-secondary cursor-pointer'
             onClick={() => {
               setShowAlert(true);
@@ -61,19 +61,21 @@ function EmailDialog({ open, onOpenChange, email }: EmailDialogProps) {
         )}
 
         <DialogDescription className="Email-dialog-description">
-          <form className='Email-dialog-form'>
-            <input placeholder='Your email' className='Email-dialog-email'/>
-            <textarea placeholder='Your message' className='Email-dialog-message'/>
-          </form>
+          <form className='Email-dialog-form gap-4.5!'>
+            <div className='Email-dialog-form'>
+              <input placeholder='Your email' className='Email-dialog-email'/>
+              <textarea placeholder='Your message' className='Email-dialog-message'/>
+            </div>
 
-          <button 
-            type='submit'
-            className='rounded-xl text-background bg-text py-1 px-4 hover:bg-text/85 cursor-pointer drop-shadow-md 
-                       drop-shadow-text/75 flex flex-row gap-2 items-center justify-center'
-          >
-            <IoIosSend />
-            Submit
-          </button>
+            <button 
+              type='submit'
+              className='rounded-xl text-background bg-text py-1 px-4 hover:bg-text/85 cursor-pointer drop-shadow-md 
+                        drop-shadow-text/75 flex flex-row gap-2 items-center justify-center'
+            >
+              <IoIosSend />
+              Submit
+            </button>
+          </form>
         </DialogDescription>
       </DialogHeader>
     </ControlledDialog>
