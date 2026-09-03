@@ -71,7 +71,7 @@ function SplashInfo() {
 
   return (
     <div className='Splash-info'>
-      <div className='flex flex-col gap-4 items-center justify-start'>
+      <div className='flex flex-col gap-4 items-center lg:justify-start'>
         <div className='Splash-info-profile-picture-wrapper'>
           <img
             src={ProfilePicture}
