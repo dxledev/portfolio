@@ -165,7 +165,7 @@ function EmailDialog({ open, onOpenChange, email }: EmailDialogProps) {
               onError={() => setTurnstileToken(null)}
               options={{
                 action: "contact",
-                theme: "auto",
+                theme: "light",
                 size: "flexible",
               }}
             />
