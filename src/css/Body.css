@@ -151,7 +151,7 @@
 }
 
 .Skills-grid {
-  @apply flex flex-row flex-wrap justify-center items-center w-full;
+  @apply flex flex-row flex-wrap justify-center items-center w-full gap-y-8;
 }
 
 .Skills-section {
