@@ -33,7 +33,10 @@ function ThemePicker() {
       value={theme}
       onValueChange={handleThemeChange}
     >
-      <SelectTrigger className="w-40 data-[size=default]:h-8 text-xl cursor-pointer transition-colors duration-300">
+      <SelectTrigger 
+        className="md:w-40 data-[size=default]:h-8 text-sm sm:text-xl
+                      cursor-pointer transition-colors duration-300"
+      >
         <SelectValue placeholder="Theme" />
       </SelectTrigger>
       <SelectContent alignItemWithTrigger={false}>

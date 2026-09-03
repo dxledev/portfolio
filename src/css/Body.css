@@ -55,26 +55,29 @@
 }
 
 .Body {
-  @apply bg-background text-text transition-colors duration-300 ease-in-out flex flex-col items-center justify-start;
+  @apply bg-background text-text transition-colors duration-300 ease-in-out 
+    flex flex-col items-center justify-start;
 }
 
 /* SPLASH SECTION */
 .Splash {
-  @apply h-[68vh] w-full flex flex-row shrink-0 min-h-95;
+  @apply h-[66vh] w-full flex flex-col sm:flex-row shrink-0 bg-primary;
 }
 
 .Splash-greeting {
-  @apply px-5 pb-10 pt-1 min-w-120 min-h-100 w-[70%] bg-primary transition-colors duration-300 ease-in-out;
+  @apply px-5 pb-10 pt-1 sm:min-w-120 min-h-100 w-full sm:w-[70%] 
+    bg-primary transition-colors duration-300 ease-in-out;
 }
 
 .Splash-greeting-image {
-  @apply h-[115%] w-full bg-center bg-no-repeat flex justify-center
-    rounded-2xl drop-shadow-lg drop-shadow-text bg-primary/30 bg-blend-luminosity transition-colors
-    duration-300 ease-in-out bg-cover animate-fade-up;
+  @apply h-[115%] sm:w-full bg-center bg-no-repeat flex justify-center
+    rounded-2xl drop-shadow-lg drop-shadow-text bg-primary/30 bg-blend-luminosity 
+    transition-colors duration-300 ease-in-out bg-cover animate-fade-up;
 }
 
 .Splash-greeting-image-text {
-  @apply text-background text-3xl lg:text-5xl flex flex-col gap-7 self-end pb-20 relative z-10;
+  @apply text-background text-2xl lg:text-5xl flex flex-col gap-7
+    self-end pb-20 relative z-10;
 
   text-shadow: 
     -2px -2px 0 var(--color-text),
@@ -84,12 +87,12 @@
 }
 
 .Splash-info {
-  @apply bg-primary w-[40%] lg:w-[30%] transition-colors duration-300 ease-in-out flex flex-col
-    items-center justify-between pt-6 min-w-80 pb-8;
+  @apply bg-primary w-full sm:w-[40%] xl:w-[30%] transition-colors duration-300 ease-in-out flex flex-col
+    items-center justify-between pt-6 pb-8;
 }
 
 .Splash-info-profile-picture-wrapper {
-  @apply w-50 h-50 rounded-full overflow-hidden drop-shadow-md drop-shadow-text hover:scale-105 duration-300
+  @apply w-45 h-45 rounded-full overflow-hidden drop-shadow-md drop-shadow-text hover:scale-105 duration-300
     animate-fade-right-delayed;
 }
 
@@ -104,11 +107,11 @@
 }
 
 .Splash-info-profile-name {
-  @apply text-4xl font-extrabold animate-fade-right-delayed-two text-shadow-sm;
+  @apply text-3xl font-extrabold animate-fade-right-delayed-two text-shadow-sm;
 }
 
 .Splash-info-profile-major {
-  @apply text-xl flex flex-col items-center gap-0.5 animate-fade-right-delayed-three font-semibold;
+  @apply text-lg flex flex-col items-center animate-fade-right-delayed-three font-semibold;
 }
 
 .Splash-info-profile-contact {

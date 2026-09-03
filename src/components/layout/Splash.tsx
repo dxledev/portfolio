@@ -36,15 +36,16 @@ function SplashGreeting() {
         }}
       >
         <h1 className='Splash-greeting-image-text'>
-          <div className='text-xl lg:text-2xl xl:text-3xl font-montserrat! tracking-[10px]'
+          <div className='text-lg lg:text-xl xl:text-3xl font-montserrat! tracking-[10px]'
           >
             HELLO, I'M
           </div>
           <div 
-            className='text-7xl lg:text-8xl xl:text-9xl font-extrabold font-playfair'
+            className='text-6xl lg:text-7xl xl:text-9xl font-extrabold font-playfair'
           >Dale Peligro.</div>
           <div
-            className='text-3xl lg:text-4xl xl:text-5xl italic font-extrabold font-cormorant tracking-wide'
+            className='text-2xl lg:text-4xl xl:text-5xl italic 
+                       font-extrabold font-cormorant tracking-wide'
           >
             Software Engineer.
           </div>
@@ -70,7 +71,7 @@ function SplashInfo() {
 
   return (
     <div className='Splash-info'>
-      <div className='flex flex-col gap-6 items-center justify-start'>
+      <div className='flex flex-col gap-4 items-center justify-start'>
         <div className='Splash-info-profile-picture-wrapper'>
           <img
             src={ProfilePicture}
@@ -88,14 +89,14 @@ function SplashInfo() {
         </div>
       </div>
 
-      <div className='flex flex-col gap-8 items-center justify-start pb-12'>
+      <div className='flex flex-col gap-6 items-center justify-start pb-6'>
         <div className='Splash-info-profile-contact'>
           <div 
             onClick={() => {
               setShowAlert(true)
               copyToClipboard(email)
             }} 
-            className='text-xl hover:underline hover:text-secondary cursor-pointer'>
+            className='text-lg hover:underline hover:text-secondary cursor-pointer'>
             {email}
           </div>
           {showAlert && (
@@ -105,7 +106,7 @@ function SplashInfo() {
               onDismiss={() => setShowAlert(false)}
             />
           )}
-          <div className='text-xl'>
+          <div className='text-lg'>
             {phoneNumber}
           </div>
         </div>
