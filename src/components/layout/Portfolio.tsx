@@ -160,6 +160,8 @@ function Button({ type, link, onClick }: ButtonProps) {
           <a
             href={link}
             className='flex flex-row items-center justify-center gap-2.5'
+            target="_blank"
+            rel="noopener reference"
           >
             {icon}
             {capitalize(type)}

@@ -46,7 +46,7 @@ const projects = [
                     and a Java server backend that handles trading, vision, and strategy systems.",
       action: "web" as const,
       github: "https://github.com/CS3560-Team-4/WSS-Project",
-      url: "cs3560-team-4.github.io/WSS-Project",
+      url: "https://cs3560-team-4.github.io/WSS-Project",
       image: wssImg,
       tags: [
         "React.js",
