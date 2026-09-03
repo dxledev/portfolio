@@ -1,3 +1,3 @@
-#portfolio
+###dalepeligro.com
 
-A webpage developed to showcase all of my amazing feats as a SWE.
+My personal portfolio showcasing my feats as a SWE.
