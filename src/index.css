@@ -11,13 +11,20 @@ body {
   @apply font-inter;
 }
 
+.Tooltip {
+  @apply rounded-md border border-border bg-popover px-2 py-1 
+    text-xs font-medium text-popover-foreground shadow-md 
+    transition-[transform,opacity] duration-150 data-ending-style:scale-95 
+    data-ending-style:opacity-0 data-starting-style:scale-95
+    data-starting-style:opacity-0;
+}
+
 /* Scrollbar Styling */
 html {
   background-color: var(--bg);
   scrollbar-color: var(--secondary) var(--bg);
   scroll-behavior: smooth;
 }
-
 
 html::-webkit-scrollbar {
   width: 0.75rem;

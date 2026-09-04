@@ -4,6 +4,8 @@ import { CheckIcon, CopyIcon } from "lucide-react";
 import { useCopyToClipboard } from "../../helpers/useCopyToClipboard.tsx";
 import { Button } from "./Button.tsx";
 
+import "../../index.css";
+
 type CopyButtonProps = {
   value: string;
   className?: string;
@@ -36,7 +38,7 @@ function CopyButton({ value, className }: CopyButtonProps) {
         />
         <Tooltip.Portal>
           <Tooltip.Positioner sideOffset={8} className="z-50">
-            <Tooltip.Popup className="rounded-md border border-border bg-popover px-2 py-1 text-xs font-medium text-popover-foreground shadow-md transition-[transform,opacity] duration-150 data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0">
+            <Tooltip.Popup className="Tooltip">
               {label}
             </Tooltip.Popup>
           </Tooltip.Positioner>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import '../../css/Body.css'
+import '../../css/Body.css';
+import '../../index.css';
 import SplashImage from '../../assets/splash.png';
 import ProfilePicture from '../../assets/profile-picture.jpeg';
 import Icon from '../widgets/Icon.tsx';
@@ -10,6 +11,8 @@ import { IoMdMail } from "react-icons/io";
 import EmailDialog from "../widgets/EmailDialog.tsx";
 import SlidingAlert from "../widgets/SlidingAlert.tsx";
 import { useCopyToClipboard } from "../../helpers/useCopyToClipboard.tsx"
+
+import { Tooltip } from "@base-ui/react/tooltip";
 
 function SplashGreeting() {
   const [scrollOffset, setScrollOffset] = useState(0);
@@ -106,14 +109,31 @@ function SplashInfo() {
 
       <div className='flex flex-col gap-6 items-center justify-start pb-6'>
         <div className='Splash-info-profile-contact'>
-          <div 
-            onClick={() => {
-              setShowAlert(true)
-              copyToClipboard(email)
-            }} 
-            className='text-lg hover:underline hover:text-secondary cursor-pointer'>
-            {email}
-          </div>
+          <Tooltip.Provider delay={300} closeDelay={100}>
+            <Tooltip.Root>
+              <Tooltip.Trigger
+                render={
+                  <div 
+                    onClick={() => {
+                      setShowAlert(true)
+                      copyToClipboard(email)
+                    }} 
+                    className='text-lg hover:underline hover:text-secondary cursor-pointer'
+                  >
+                    {email}
+                  </div>
+                }
+              />
+              <Tooltip.Portal>
+                <Tooltip.Positioner sideOffset={8} className="z-50">
+                  <Tooltip.Popup className="Tooltip">
+                    Copy email address
+                  </Tooltip.Popup>
+                </Tooltip.Positioner>
+              </Tooltip.Portal>
+            </Tooltip.Root>
+          </Tooltip.Provider>
+          
           {showAlert && (
             <SlidingAlert
               title='Clipboard'
@@ -131,6 +151,7 @@ function SplashInfo() {
             onClick={() => setDialogOpen(true)}
             icon={<IoMdMail className='size-8' />}
             alt='Email'
+            tooltipLabel='Contact Me'
           />
           <EmailDialog
             open={dialogOpen}
@@ -141,11 +162,13 @@ function SplashInfo() {
             link='https://github.com/dxledev'
             icon={<FaGithub className='size-8' />}
             alt="GitHub"
+            tooltipLabel='GitHub'
           />
           <Icon 
             link='https://www.linkedin.com/in/dale-peligro-62762424a/'
             icon={<FaLinkedin className='size-8'/>}
             alt="LinkedIn"
+            tooltipLabel='LinkedIn'
           />
         </div>
 
