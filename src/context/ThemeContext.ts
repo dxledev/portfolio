@@ -1,6 +1,12 @@
 import { createContext } from 'react';
 
-export type Theme = 'rose-pine' | 'nord' | 'catppuccin';
+export type Theme = 
+  | 'rose-pine' 
+  | 'nord' 
+  | 'catppuccin'
+  | 'bauhaus'
+  | 'gruvbox'
+  | 'everforest';
 
 export type ThemeContextType = {
   theme: Theme,

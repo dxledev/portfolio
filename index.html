@@ -4,6 +4,35 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- theme initialization to prevent default theme flash if user -->
+    <!-- has selected a different theme -->
+    <script>
+      (() => {
+        const storageKey = "portfolio-theme";
+        const defaultTheme = "rose-pine";
+        const validThemes = [
+          'rose-pine',
+          'bauhaus',
+          'gruvbox',
+          'nord',
+          'catppuccin',
+          'everforest'
+        ];
+
+        try {
+          const storedTheme = localStorage.getItem(storageKey);
+          const initialTheme = validThemes.includes(storedTheme)
+            ? storedTheme
+            : defaultTheme;
+
+          document.documentElement.dataset.theme = initialTheme;
+        } catch {
+          document.documentElement.dataset.theme = defaultTheme;
+        }
+      })();
+    </script>
+
     <title>Dale Peligro</title>
   </head>
   <body>
