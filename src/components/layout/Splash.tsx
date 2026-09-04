@@ -79,9 +79,9 @@ function SplashInfo() {
 
   const [copyToClipboard] = useCopyToClipboard();
 
-  const name = "Dale Peligro.";
+  const name = "Dale Peligro";
   const majorLine1 = "B.S. in Science,";
-  const majorLine2 = "Computer Science.";
+  const majorLine2 = "Computer Science";
   const location = "Covina, California";
 
   const email = "ddparmstrong2021@gmail.com";
