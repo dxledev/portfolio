@@ -46,7 +46,6 @@ function CommandField({ cmd, inputType }: CommandFieldProps) {
           spellCheck={false}
           aria-lanel="Installation command"
           className='Portfolio-project-dialog-command-field'
-          onFocus={(event) => event.currentTarget.select()}
         />
       ) : (
         <input 
@@ -56,7 +55,6 @@ function CommandField({ cmd, inputType }: CommandFieldProps) {
           spellCheck={false}
           aria-label="Installation command"
           className='Portfolio-project-dialog-command-field'
-          onFocus={(event) => event.currentTarget.select()}
         />
       )}
 
