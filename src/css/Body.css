@@ -139,7 +139,7 @@
 }
 
 .About-body {
-  @apply flex flex-col items-start w-[65%] lg:w-[50%] gap-6 shrink-0 text-base lg:text-xl font-medium;
+  @apply flex flex-col items-start w-[65%] lg:w-[50%] gap-6 shrink-0 text-base lg:text-xl font-medium animate-fade-in;
 }
 
 /* SKILLS SECTION */
