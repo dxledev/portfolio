@@ -129,21 +129,23 @@
 
 /* ABOUT SECTION */
 .About {
-  @apply w-full flex flex-col shrink-0 bg-background items-center gap-12 justify-center pt-45 pb-30;
+  @apply w-full flex flex-col shrink-0 bg-background items-center gap-6 justify-center pt-15 lg:pt-30 pb-15
+    transition-colors duration-220;
 }
 
 .About-title {
-  @apply flex flex-col items-start gap-2 w-[70%] animate-fade-in shrink-0;
+  @apply flex flex-col items-start gap-1 w-[65%] lg:w-[50%] animate-fade-in shrink-0 transition-colors
+    duration-220;
 }
 
 .About-body {
-  @apply flex flex-col items-start w-[70%] gap-12 shrink-0;
+  @apply flex flex-col items-start w-[65%] lg:w-[50%] gap-6 shrink-0 text-base lg:text-xl font-medium;
 }
 
 /* SKILLS SECTION */
 .Skills {
   @apply bg-secondary flex flex-col w-full shrink-0 items-center 
-    justify-start gap-12 py-20;
+    justify-start gap-12 py-12;
 }
 
 .Skills-header {
@@ -151,12 +153,12 @@
 }
 
 .Skills-grid {
-  @apply flex flex-row flex-wrap justify-center items-center w-full gap-y-8;
+  @apply flex flex-row flex-wrap justify-center items-center w-[90%] gap-y-6 gap-x-8;
 }
 
 .Skills-section {
-  @apply rounded-4xl bg-primary flex flex-col h-92 w-108
-    drop-shadow-lg shadow-text justify-center items-center gap-8 mx-6 sm:mx-8;
+  @apply rounded-4xl bg-primary flex flex-col h-88 w-96 sm:h-92 sm:w-108
+    drop-shadow-lg shadow-text justify-center items-center gap-8;
 }
 
 .Skills-section-title {
@@ -168,7 +170,7 @@
 }
 
 .Skills-section-row#tools-row-2 {
-  @apply gap-x-6!;
+  @apply gap-x-5.5!;
 }
 
 .Skills-section-skill {

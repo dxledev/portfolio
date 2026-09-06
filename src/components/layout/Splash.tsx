@@ -59,7 +59,7 @@ function SplashGreeting() {
             HELLO, I'M
           </div>
           <div 
-            className='text-5xl lg:text-7xl xl:text-9xl font-extrabold font-playfair'
+            className='text-5xl lg:text-7xl xl:text-9xl font-black font-playfair'
           >Dale Peligro.</div>
           <div
             className='text-2xl lg:text-4xl xl:text-5xl italic 
