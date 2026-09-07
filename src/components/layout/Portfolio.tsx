@@ -82,7 +82,7 @@ function ProjectDialog({ instructions, title, link }: ProjectDialogProps) {
       <DialogContent showCloseButton={false} className="max-w-80 sm:max-w-lg md:max-w-2xl lg:max-w-4xl">
         <DialogHeader>
           <DialogTitle className='text-lg sm:text-xl lg:text-2xl'>Download {title}</DialogTitle>
-          <DialogDescription className='text-text text-sm sm:text-base md:text-xl flex flex-col gap-3 max-w-[90%]'>
+          <DialogDescription className='text-text text-sm sm:text-base md:text-xl flex flex-col gap-3 max-w-[90%] sm:max-w-full'>
             {instructions.map((instruction, index) => (
               <div key={index} className='flex flex-col gap-1'>
                 <div>
