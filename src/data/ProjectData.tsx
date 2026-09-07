@@ -4,7 +4,16 @@ import hymissionImg from '../assets/portfolio/hymission.png'
 
 const inst_hymission = [
   {
-    inst: "Ensure you are running Hyprland on your system already!",
+    inst: (
+      <>
+        Ensure you are running <span>
+          <a 
+            href='https://hypr.land'
+            className='Portfolio-project-download-dialog-link'
+          >Hyprland</a>
+        </span> on your system already!
+      </>
+    ),
   },
   {
     type: "multi" as const,
@@ -19,7 +28,6 @@ const inst_hymission = [
 ]
 
 const projects = [
-
     {
       id: "netric",
       title: "Netric Sports",

@@ -1,20 +1,20 @@
 import '../../css/Body.css';
+import { type ReactNode } from "react";
 
 import { FaCode } from "react-icons/fa6";
 import { MdDownload } from "react-icons/md";
 import { CiShare1 } from "react-icons/ci";
 
 import {
-  Dialog, 
-  DialogContent, 
+  Dialog,
+  DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "../widgets/Dialog.tsx";
 
-import { projects } from "../../data/ProjectData.ts";
-
+import { projects } from "../../data/ProjectData.tsx";
 import { useInView } from '../../helpers/UseInView.tsx';
 import { CopyButton } from '../widgets/CopyButton.tsx';
 
@@ -48,7 +48,7 @@ function CommandField({ cmd, inputType }: CommandFieldProps) {
           className='Portfolio-project-dialog-command-field'
         />
       ) : (
-        <input 
+        <input
           type="text"
           value={cmd}
           readOnly
@@ -65,7 +65,7 @@ function CommandField({ cmd, inputType }: CommandFieldProps) {
 
 type instruction = {
   type?: iType,
-  inst: string,
+  inst: ReactNode,
   cmd?: string,
 }
 
@@ -85,7 +85,9 @@ function ProjectDialog({ instructions, title, link }: ProjectDialogProps) {
           <DialogDescription className='text-text text-sm sm:text-base md:text-xl flex flex-col gap-3 max-w-[90%]'>
             {instructions.map((instruction, index) => (
               <div key={index} className='flex flex-col gap-1'>
-                {instruction.inst}
+                <div>
+                  {instruction.inst}
+                </div>
 
                 {(instruction.cmd !== undefined && instruction.type !== undefined) && (
                   <div>
@@ -96,20 +98,19 @@ function ProjectDialog({ instructions, title, link }: ProjectDialogProps) {
                   </div>
                 )}
               </div>
-              
+
             ))}
             {link !== undefined && (
               <div className='text-sm sm:text-base md:text-xl flex flex-col sm:flex-row gap-2'>
                 <div>
                   Full documentation at
                 </div>
-                <a href={link} className='text-secondary underline decoration-2 decoration-secondary
-                    hover:decoration-primary hover:text-primary'>
+                <a href={link} className='Portfolio-project-download-dialog-link'>
                   {link}.
                 </a>
               </div>
             )}
-            
+
           </DialogDescription>
         </DialogHeader>
       </DialogContent>
@@ -166,7 +167,7 @@ function Button({ type, link, onClick }: ButtonProps) {
           </a>
         </div>
       ) : (
-        <button 
+        <button
           className={`Portfolio-project-button-${type}
             flex flex-row items-center justify-center gap-2`}
           onClick={onClick}
@@ -207,7 +208,7 @@ type ProjectProps =
 // if it's "model" then return a dialog button
 function Project({ ...project }: ProjectProps) {
   return (
-    <div 
+    <div
       className='Portfolio-project'
     >
       <div className='Portfolio-project-image-wrapper'>
@@ -225,9 +226,9 @@ function Project({ ...project }: ProjectProps) {
           <Tag name={tag} />
         ))}
       </div>
-  
+
       <div className='flex flex-row gap-4'>
-        <Button 
+        <Button
           type="code"
           link={project.github}
         />
@@ -237,8 +238,8 @@ function Project({ ...project }: ProjectProps) {
             link={project.url}
           />
         ) : (
-          <ProjectDialog 
-              instructions={project.instructions} 
+          <ProjectDialog
+              instructions={project.instructions}
               title={project.title}
               link={project.github}
           />
@@ -257,7 +258,7 @@ function Portfolio() {
         What I've Made
       </h1>
 
-      <div 
+      <div
         ref={ref}
         className={`Portfolio-grid ${isVisible ? "animate-fade-up-no-delay" : "opacity-0"}`}
       >

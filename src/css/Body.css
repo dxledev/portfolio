@@ -248,6 +248,11 @@
   @apply bg-highlight text-text hover:bg-highlight/90;
 }
 
+.Portfolio-project-download-dialog-link {
+  @apply text-secondary underline decoration-2 decoration-secondary
+    hover:decoration-primary hover:text-primary underline-offset-4;
+}
+
 .Portfolio-project-dialog-command-field-wrapper {
   @apply flex items-center gap-2 rounded-md border border-border bg-background p-2;
 }
