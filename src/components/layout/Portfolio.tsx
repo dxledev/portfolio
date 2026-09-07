@@ -79,17 +79,17 @@ function ProjectDialog({ instructions, title, link }: ProjectDialogProps) {
   return (
     <Dialog>
       <DialogTrigger render={<Button type="download" />} />
-      <DialogContent showCloseButton={false} className="lg:max-w-4xl">
+      <DialogContent showCloseButton={false} className="max-w-80 sm:max-w-lg md:max-w-2xl lg:max-w-4xl">
         <DialogHeader>
-          <DialogTitle className='text-2xl'>Download {title}</DialogTitle>
-          <DialogDescription className='text-text text-xl flex flex-col gap-3'>
+          <DialogTitle className='text-lg sm:text-xl lg:text-2xl'>Download {title}</DialogTitle>
+          <DialogDescription className='text-text text-sm sm:text-base md:text-xl flex flex-col gap-3 max-w-[90%]'>
             {instructions.map((instruction, index) => (
               <div key={index} className='flex flex-col gap-1'>
                 {instruction.inst}
 
                 {(instruction.cmd !== undefined && instruction.type !== undefined) && (
                   <div>
-                    <CommandField 
+                    <CommandField
                       inputType={instruction.type}
                       cmd={instruction.cmd}
                     />
@@ -99,7 +99,7 @@ function ProjectDialog({ instructions, title, link }: ProjectDialogProps) {
               
             ))}
             {link !== undefined && (
-              <div className='text-xl flex flex-row gap-2'>
+              <div className='text-sm sm:text-base md:text-xl flex flex-col sm:flex-row gap-2'>
                 <div>
                   Full documentation at
                 </div>

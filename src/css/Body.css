@@ -253,10 +253,10 @@
 }
 
 .Portfolio-project-dialog-command-field {
-  @apply min-w-0 flex-1 bg-transparent font-mono text-foreground outline-none text-lg;
+  @apply min-w-0 flex-1 bg-transparent font-mono text-foreground outline-none text-xs sm:text-base md:text-lg text-wrap;
 }
 
 textarea.Portfolio-project-dialog-command-field {
-  @apply field-sizing-content resize-none overflow-hidden;
+  @apply field-sizing-content resize-none overflow-hidden text-wrap;
 }
 
