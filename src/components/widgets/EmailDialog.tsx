@@ -114,7 +114,7 @@ function EmailDialog({ open, onOpenChange, email }: EmailDialogProps) {
         </DialogTitle>
 
         <DialogDescription className="text-center text-text text-xl pb-2">
-          Reach out to me at <span className='underline hover:text-secondary cursor-pointer'
+          Reach out to me at <span className='underline hover:text-secondary cursor-pointer underline-offset-4 hover:underline-offset-4'
             onClick={() => {
               setShowCopiedAlert(true);
               copyToClipboard(email)
