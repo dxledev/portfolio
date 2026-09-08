@@ -8,7 +8,7 @@ function About() {
     "Hi there, visitor! I'm Dale, an LA/SGV County-based software engineer. I specialize in both React.js for frontend development " +
     "and C++ for backend/application development. My primary development environment is Linux. Currently, I'm learning and " +
     "building projects independently and working hard to find a permanent full-time position where I can showcase my " +
-    "skills in assisting building and improving systems.";
+    "skills through assisting in building and improving systems.";
 
   const body2 =
     "In my free time, I enjoy playing pool and the occasional guitar. I'm a die-hard Golden State Warriors fan, and watching " +
