@@ -105,7 +105,7 @@ function ProjectDialog({ instructions, title, link }: ProjectDialogProps) {
                 <div>
                   Full documentation at
                 </div>
-                <a href={link} className='Portfolio-project-download-dialog-link'>
+                <a href={link} target='_blank' className='Portfolio-project-download-dialog-link'>
                   {link}.
                 </a>
               </div>

@@ -9,6 +9,7 @@ const inst_hymission = [
         Ensure you are running <span>
           <a 
             href='https://hypr.land'
+            target='_blank'
             className='Portfolio-project-download-dialog-link'
           >Hyprland</a>
         </span> on your system already!
