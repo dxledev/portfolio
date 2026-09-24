@@ -84,7 +84,7 @@ function SplashInfo() {
   const majorLine2 = "Computer Science";
   const location = "Covina, California";
 
-  const email = "ddparmstrong2021@gmail.com";
+  const email = "dalepeligro@gmail.com";
   const phoneNumber = "+1 (626)-727-1414";
 
   return (

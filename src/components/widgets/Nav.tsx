@@ -4,7 +4,7 @@ import EmailDialog from './EmailDialog.tsx';
 import { useState } from 'react';
 
 function Nav() {
-  const email = "ddparmstrong2021@gmail.com";
+  const email = "dalepeligro@gmail.com";
   const [dialogOpen, setDialogOpen] = useState(false);
 
   return (
