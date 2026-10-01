@@ -21,7 +21,7 @@ function SplashGreeting() {
     const parallaxBreakpoint = window.matchMedia('(min-width: 64rem)');
 
     function handleScroll() {
-      setScrollOffset(Math.min(window.scrollY * 0.45, 300));
+      setScrollOffset(Math.min(window.scrollY * 0.3, 300));
     }
 
     function syncParallax() {
