@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import '../../css/Body.css';
 import '../../index.css';
-import SplashImage from '../../assets/splash.png';
-import ProfilePicture from '../../assets/profile-picture.jpeg';
+import SplashImage from '../../assets/splash.webp';
+import ProfilePicture from '../../assets/profile-picture.webp';
 import Icon from '../widgets/Icon.tsx';
 
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
@@ -94,6 +94,7 @@ function SplashInfo() {
           <img
             src={ProfilePicture}
             alt="Profile"
+            fetchPriority="high"
             className='Splash-info-profile-picture'
           />
         </div>
@@ -188,9 +189,40 @@ function SplashInfo() {
   );
 }
 
+// Fallback so a slow or failed image never keeps the splash hidden.
+const IMAGE_READY_TIMEOUT_MS = 3000;
+
 function Splash() {
+  const [imagesReady, setImagesReady] = useState(false);
+
+  // Hold the splash animations until both images are decoded, so they
+  // never play over empty space on a first (uncached) visit.
+  useEffect(() => {
+    let cancelled = false;
+
+    function markReady() {
+      if (!cancelled) setImagesReady(true);
+    }
+
+    function decodeImage(src: string) {
+      const image = new Image();
+      image.src = src;
+      return image.decode().catch(() => {});
+    }
+
+    const timeout = window.setTimeout(markReady, IMAGE_READY_TIMEOUT_MS);
+
+    Promise.all([decodeImage(SplashImage), decodeImage(ProfilePicture)])
+      .then(markReady);
+
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timeout);
+    };
+  }, []);
+
   return(
-    <div className='Splash'>
+    <div className='Splash' data-ready={imagesReady}>
       <SplashGreeting />
       <SplashInfo />
     </div>
